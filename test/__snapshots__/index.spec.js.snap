@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`unexpected-reaction DOMElement to exhaustivily satisfy fails with a diff 1`] = `
+"expected
+<div data-test-id=\\"hello\\">
+  <div class=\\"label\\">Hello:</div>
+  <div class=\\"value\\" data-test=\\"value\\">Jane Doe</div>
+</div>
+to exhaustively satisfy
+<div>
+  <div class=\\"label\\">Hello:</div>
+  <div class=\\"value\\" data-test=\\"value\\">Jane Doe</div>
+</div>
+
+<div
+  data-test-id=\\"hello\\" // should be removed
+><div class=\\"label\\">Hello:</div><div class=\\"value\\" data-test=\\"value\\">Jane Doe</div></div>"
+`;
+
+exports[`unexpected-reaction DOMElement to satisfy fails with a diff 1`] = `
+"expected
+<div>
+  <div class=\\"label\\">Hello:</div>
+  <div class=\\"value\\" data-test=\\"value\\">Jane Doe</div>
+</div>
+to satisfy <div><div class=\\"label\\">Hello:</div><div>Jane Doe!</div></div>
+
+<div>
+  <div class=\\"label\\">Hello:</div>
+  <div class=\\"value\\" data-test=\\"value\\">
+    Jane Doe // should equal 'Jane Doe!'
+             //
+             // -Jane Doe
+             // +Jane Doe!
+  </div>
+</div>"
+`;
