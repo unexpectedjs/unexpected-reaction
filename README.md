@@ -1,6 +1,6 @@
 # unexpected-reaction
 
-An Unexpected plugin to make React testing with unexpected-dom more convinient.
+An Unexpected plugin to make React testing with [unexpected-dom](https://munter.github.io/unexpected-dom/) more convinient.
 
 _Under construction._
 
