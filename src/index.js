@@ -22,9 +22,7 @@ const unexpectedReaction = {
       "<ReactElement> when mounted <assertion>",
       (expect, subject) => {
         expect.errorMode = "bubble";
-        const mounted = mount(subject);
-        mounted.removeAttribute("data-reactroot");
-        return expect.shift(mounted);
+        return expect.shift(mount(subject));
       }
     );
 
@@ -32,9 +30,7 @@ const unexpectedReaction = {
       "<DOMElement> to [exhaustively] satisfy <ReactElement>",
       (expect, subject, value) => {
         expect.errorMode = "bubble";
-        const mounted = mount(value);
-        mounted.removeAttribute("data-reactroot");
-        return expect(subject, "to [exhaustively] satisfy", mounted);
+        return expect(subject, "to [exhaustively] satisfy", mount(value));
       }
     );
   }
