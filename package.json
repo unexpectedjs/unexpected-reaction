@@ -9,7 +9,7 @@
     "build": "babel --out-dir lib --quiet src",
     "lint": "eslint .",
     "prepare": "npm run build",
-    "test": "jest",
+    "test": "jest && npm run test:documentation",
     "test:documentation": "mocha documentation",
     "generate-site": "generate-site",
     "deploy-site": "deploy-site.sh",
