@@ -2,7 +2,7 @@
   "name": "unexpected-reaction",
   "version": "2.1.0",
   "description":
-    "An Unexpected plugin to make React testing with unexpected-dom more convinient",
+    "An Unexpected plugin to make React testing with unexpected-dom more convenient",
   "main": "./lib/index.js",
   "files": ["lib"],
   "scripts": {

@@ -7,7 +7,7 @@ repository: https://github.com/unexpectedjs/unexpected-reaction
 
 # unexpected-reaction
 
-An Unexpected plugin to make React testing with [unexpected-dom](https://munter.github.io/unexpected-dom/) more convinient.
+An Unexpected plugin to make React testing with [unexpected-dom](https://munter.github.io/unexpected-dom/) more convenient.
 
 ![unexpected-reaction](https://media.giphy.com/media/l46CwgcMQr6Si3uGk/giphy.gif)
 
