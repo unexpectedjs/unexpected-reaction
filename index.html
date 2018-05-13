@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+    <link rel="stylesheet" href="static/normalize.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="static/main.css" type="text/css" media="screen" />
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="static/bug-icon-black.ico">
+    <title>unexpected-reaction</title>
+</head>
+<body class="sidebar-hidden theme-light"> 
+    <header>
+        <div class="logo-icon"></div>
+        <nav>
+            <ul>
+                <li class="menu-toggle-item">
+                    <button class="menu-toggle" onclick="toggleSidebar()"></button>
+                </li>
+                
+                <li class="active"><a href="">unexpected-reaction</a></li>
+                
+                
+                
+                
+                <li class=""><a href="example">Example</a></li>
+                
+            </ul>
+        </nav>
+        <div class="search" style="visibility: hidden">
+            <input id="search" placeholder="Search..." value="">
+            <div id="searchDropDown" class="dropDown">
+                <ul id="searchResults"></ul>
+            </div>
+        </div>
+    </header>
+
+<div class="main" tabindex="-1">
+    <div class="content">
+        <h1 id="unexpected-reaction">unexpected-reaction</h1>
+<p>An Unexpected plugin to make React testing with <a href="https://munter.github.io/unexpected-dom/">unexpected-dom</a> more convinient.</p>
+<p><img src="https://media.giphy.com/media/l46CwgcMQr6Si3uGk/giphy.gif" alt="unexpected-reaction"></p>
+<h2 id="installation">Installation</h2>
+<p>Install it with NPM or add it to your <code>package.json</code>:</p>
+<div class="code lang-"><div>$&nbsp;npm&nbsp;install&nbsp;--save-dev&nbsp;unexpected&nbsp;unexpected-dom&nbsp;unexpected-reaction</div></div><p>Then:</p>
+<div class="code lang-javascript"><div><span style="color: #a71d5d">var</span>&nbsp;expect&nbsp;<span style="color: #a71d5d">=</span>&nbsp;<span style="color: #000000">require</span><span style="color: #000000">(</span><span style="color: #df5000">'unexpected'</span><span style="color: #000000">);</span></div><div>expect<span style="color: #000000">.</span><span style="color: #000000">use</span><span style="color: #000000">(</span><span style="color: #000000">require</span><span style="color: #000000">(</span><span style="color: #df5000">'unexpected-dom'</span><span style="color: #000000">);</span></div><div>expect<span style="color: #000000">.</span><span style="color: #000000">use</span><span style="color: #000000">(</span><span style="color: #000000">require</span><span style="color: #000000">(</span><span style="color: #df5000">'unexpected-reaction'</span><span style="color: #000000">);</span></div></div><h2 id="usage">Usage</h2>
+<div class="code lang-javascript"><div><span style="color: #a71d5d">const</span>&nbsp;React&nbsp;<span style="color: #a71d5d">=</span>&nbsp;<span style="color: #000000">require</span><span style="color: #000000">(</span><span style="color: #df5000">&quot;react&quot;</span><span style="color: #000000">);</span></div><div>&nbsp;</div><div><span style="color: #a71d5d">const</span>&nbsp;<span style="color: #000000">Hello</span>&nbsp;<span style="color: #a71d5d">=</span>&nbsp;<span style="color: #000000">({</span>&nbsp;children&nbsp;<span style="color: #000000">})</span>&nbsp;<span style="color: #a71d5d">=&gt;</span>&nbsp;<span style="color: #000000">(</span></div><div>&nbsp;&nbsp;<span style="color: #a71d5d">&lt;</span>div<span style="color: #a71d5d">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a71d5d">&lt;</span>span&nbsp;className<span style="color: #a71d5d">=</span><span style="color: #df5000">&quot;label&quot;</span><span style="color: #a71d5d">&gt;</span>Hello<span style="color: #a71d5d">&lt;/</span>span<span style="color: #a71d5d">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a71d5d">&amp;</span>nbsp<span style="color: #000000">;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a71d5d">&lt;</span>span&nbsp;className<span style="color: #a71d5d">=</span><span style="color: #df5000">&quot;name&quot;</span><span style="color: #a71d5d">&gt;</span><span style="color: #000000">{</span>children<span style="color: #000000">}</span><span style="color: #a71d5d">&lt;/</span>span<span style="color: #a71d5d">&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #a71d5d">&lt;/</span>div<span style="color: #a71d5d">&gt;</span></div><div><span style="color: #000000">);</span>&nbsp;</div></div><p>Use it to mount a component into the DOM and assert on the rendered output:</p>
+<div class="code lang-javascript"><div><span style="color: #000000">expect</span><span style="color: #000000">(</span></div><div>&nbsp;&nbsp;<span style="color: #a71d5d">&lt;</span>Hello<span style="color: #a71d5d">&gt;</span>Jane&nbsp;Doe<span style="color: #a71d5d">&lt;/</span>Hello<span style="color: #a71d5d">&gt;</span><span style="color: #000000">,</span></div><div>&nbsp;&nbsp;<span style="color: #df5000">'when&nbsp;mounted'</span><span style="color: #000000">,</span></div><div>&nbsp;&nbsp;<span style="color: #df5000">'queried&nbsp;for&nbsp;first'</span><span style="color: #000000">,</span>&nbsp;<span style="color: #df5000">'.name'</span><span style="color: #000000">,</span></div><div>&nbsp;&nbsp;<span style="color: #df5000">'to&nbsp;have&nbsp;text'</span><span style="color: #000000">,</span>&nbsp;<span style="color: #df5000">'Jane&nbsp;Doe'</span></div><div><span style="color: #000000">)</span></div></div><p>You can also satisfy a mounted component against a JSX structure. This will
+mount the JSX structure into the DOM and compare the mounted component under test with
+the DOM rendered by the given JSX structure. The comparison will use 
+<code>to satisfy</code> from <a href="https://munter.github.io/unexpected-dom/assertions/DOMElement/to-satisfy/">unexpected-dom</a>.</p>
+<div class="code lang-javascript"><div><span style="color: #000000">expect</span><span style="color: #000000">(</span></div><div>&nbsp;&nbsp;<span style="color: #a71d5d">&lt;</span>Hello<span style="color: #a71d5d">&gt;</span>Jane&nbsp;Doe<span style="color: #a71d5d">&lt;/</span>Hello<span style="color: #a71d5d">&gt;</span><span style="color: #000000">,</span></div><div>&nbsp;&nbsp;<span style="color: #df5000">'when&nbsp;mounted'</span><span style="color: #000000">,</span></div><div>&nbsp;&nbsp;<span style="color: #df5000">'to&nbsp;satisfy'</span><span style="color: #000000">,</span></div><div>&nbsp;&nbsp;<span style="color: #a71d5d">&lt;</span>div<span style="color: #a71d5d">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a71d5d">&lt;</span>span&nbsp;className<span style="color: #a71d5d">=</span><span style="color: #df5000">&quot;label&quot;</span><span style="color: #a71d5d">&gt;</span>Hello<span style="color: #a71d5d">&lt;/</span>span<span style="color: #a71d5d">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a71d5d">&amp;</span>nbsp<span style="color: #000000">;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a71d5d">&lt;</span>span&nbsp;className<span style="color: #a71d5d">=</span><span style="color: #df5000">&quot;name&quot;</span><span style="color: #a71d5d">&gt;</span>Jane&nbsp;Doe<span style="color: #a71d5d">&lt;/</span>span<span style="color: #a71d5d">&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #a71d5d">&lt;/</span>div<span style="color: #a71d5d">&gt;</span></div><div><span style="color: #000000">)</span></div></div><p>This is similar to using
+<a href="https://github.com/sunesimonsen/react-dom-testing/">react-dom-testing</a> and
+<a href="https://munter.github.io/unexpected-dom">unexpected-dom</a> the following way:</p>
+<div class="code lang-javascript"><div><span style="color: #a71d5d">const</span>&nbsp;<span style="color: #000000">{</span>&nbsp;mount&nbsp;<span style="color: #000000">}</span>&nbsp;<span style="color: #a71d5d">=</span>&nbsp;<span style="color: #000000">require</span><span style="color: #000000">(</span><span style="color: #df5000">'react-dom-testing'</span><span style="color: #000000">);</span></div><div>&nbsp;</div><div><span style="color: #000000">expect</span><span style="color: #000000">(</span></div><div>&nbsp;&nbsp;<span style="color: #000000">mount</span><span style="color: #000000">(</span><span style="color: #a71d5d">&lt;</span>Hello<span style="color: #a71d5d">&gt;</span>Jane&nbsp;Doe<span style="color: #a71d5d">&lt;/</span>Hello<span style="color: #a71d5d">&gt;</span><span style="color: #000000">),</span></div><div>&nbsp;&nbsp;<span style="color: #df5000">'to&nbsp;satisfy'</span><span style="color: #000000">,</span></div><div>&nbsp;&nbsp;<span style="color: #000000">mount</span><span style="color: #000000">(</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a71d5d">&lt;</span>div<span style="color: #a71d5d">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a71d5d">&lt;</span>span&nbsp;className<span style="color: #a71d5d">=</span><span style="color: #df5000">&quot;label&quot;</span><span style="color: #a71d5d">&gt;</span>Hello<span style="color: #a71d5d">&lt;/</span>span<span style="color: #a71d5d">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a71d5d">&amp;</span>nbsp<span style="color: #000000">;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a71d5d">&lt;</span>span&nbsp;className<span style="color: #a71d5d">=</span><span style="color: #df5000">&quot;name&quot;</span><span style="color: #a71d5d">&gt;</span>Jane&nbsp;Doe<span style="color: #a71d5d">&lt;/</span>span<span style="color: #a71d5d">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a71d5d">&lt;/</span>div<span style="color: #a71d5d">&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #000000">)</span></div><div><span style="color: #000000">);</span></div></div><h2 id="mit-license">MIT License</h2>
+<p>Copyright (c) 2018 Sune Simonsen <a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#115;&#117;&#110;&#101;&#64;&#119;&#x65;&#x2d;&#x6b;&#110;&#111;&#119;&#104;&#111;&#119;&#46;&#x64;&#x6b;">&#115;&#117;&#110;&#101;&#64;&#119;&#x65;&#x2d;&#x6b;&#110;&#111;&#119;&#104;&#111;&#119;&#46;&#x64;&#x6b;</a></p>
+<p>Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the &#39;Software&#39;), to deal in the Software without
+restriction, including without limitation the rights to use, copy,
+modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &#39;AS IS&#39;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+
+    </div>
+    <a class="github-ribbon" href="https://github.com/unexpectedjs/unexpected-reaction"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+</div>
+<script type="text/javascript">
+    baseUrl = '.';
+</script>
+<script type="text/javascript" src="static/toggleSidebar.js"></script>
+<script type="text/javascript" src="static/rememberScrollPosition.js"></script>
+<script type="text/javascript" src="static/focusMain.js"></script>
+<script type="text/javascript" src="static/search.js"></script>
+</body>
+</html>
+
