@@ -1,17 +1,18 @@
 {
   "name": "unexpected-reaction",
   "version": "2.1.0",
-  "description": "An Unexpected plugin to make React testing with unexpected-dom more convinient",
+  "description":
+    "An Unexpected plugin to make React testing with unexpected-dom more convinient",
   "main": "./lib/index.js",
-  "files": [
-    "lib"
-  ],
+  "files": ["lib"],
   "scripts": {
     "build": "babel --out-dir lib --quiet src",
     "lint": "eslint .",
     "prepare": "npm run build",
     "test": "jest",
     "test:documentation": "mocha documentation",
+    "generate-site": "generate-site",
+    "deploy-site": "deploy-site.sh",
     "ci": "npm run lint && npm test"
   },
   "bugs": "https://github.com/unexpectedjs/unexpected-reaction",
@@ -19,13 +20,7 @@
     "type": "git",
     "url": "https://github.com/unexpectedjs/unexpected-reaction"
   },
-  "keywords": [
-    "unexpected",
-    "plugin",
-    "react",
-    "testing",
-    "DOM"
-  ],
+  "keywords": ["unexpected", "plugin", "react", "testing", "DOM"],
   "author": "Sune Simonsen <sune@we-knowhow.dk>",
   "license": "MIT",
   "devDependencies": {
