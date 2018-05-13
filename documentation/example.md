@@ -2,7 +2,7 @@
 title: Example
 template: default.ejs
 theme: light
-repository: https://github.com/unexpectedjs/unexpected
+repository: https://github.com/unexpectedjs/unexpected-reaction
 ---
 
 In this example I will show you how you can use react-dom-testing,
