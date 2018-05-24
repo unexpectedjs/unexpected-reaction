@@ -59,6 +59,49 @@ class Toggle extends Component {
   }
 }
 
+class MyInput extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: "",
+      selected: ""
+    };
+
+    this.onKeyDown = data => {
+      if (data.keyCode === 13) {
+        // Enter
+        this.setState(state => ({
+          value: "",
+          selected: state.value
+        }));
+      }
+    };
+
+    this.onChange = data => {
+      this.setState({
+        value: data.target.value
+      });
+    };
+  }
+
+  render() {
+    return (
+      <fieldset>
+        <label htmlFor="name">Enter your name:</label>
+        <input
+          type="input"
+          name="name"
+          value={this.state.value}
+          onChange={this.onChange}
+          onKeyDown={this.onKeyDown}
+        />
+        <span data-test="name">{this.state.selected}</span>
+      </fieldset>
+    );
+  }
+}
+
 describe("unexpected-reaction", () => {
   describe("ReactElement", () => {
     describe("when mounted", () => {
@@ -168,6 +211,105 @@ describe("unexpected-reaction", () => {
                 Jane Doe
               </div>
             </div>
+          );
+        }, "with error matching snapshot");
+      });
+    });
+
+    describe("with event", () => {
+      describe("when given a string", () => {
+        it("invokes the given event type on the subject", () => {
+          expect(
+            <Toggle />,
+            "when mounted",
+            "with event",
+            "click",
+            "to have text",
+            "TRUE"
+          );
+        });
+      });
+
+      describe("when given an object", () => {
+        expect(
+          <MyInput />,
+          "when mounted",
+          "with event",
+          {
+            type: "change",
+            value: "Jane Doe",
+            target: "input"
+          },
+          "queried for first",
+          "input",
+          "to have attribute",
+          {
+            value: "Jane Doe"
+          }
+        );
+      });
+
+      describe("when given an array", () => {
+        it("applies all of the events", () => {
+          expect(
+            <MyInput />,
+            "when mounted",
+            "with events",
+            [
+              {
+                type: "change",
+                value: "Jane Doe",
+                target: "input"
+              },
+              {
+                type: "keyDown",
+                target: "input",
+                data: {
+                  keyCode: 13
+                }
+              }
+            ],
+            "queried for first",
+            "[data-test=name]",
+            "to have text",
+            "Jane Doe"
+          );
+        });
+
+        it("accepts string and object events", () => {
+          expect(
+            <Toggle />,
+            "when mounted",
+            "with events",
+            ["click", { type: "click" }],
+            "to have text",
+            "FALSE"
+          );
+        });
+      });
+
+      it("fails if it cant find the event target", () => {
+        expect(() => {
+          expect(
+            <Toggle />,
+            "when mounted",
+            "with event",
+            { type: "click", target: ".foobar" },
+            "to have text",
+            "TRUE"
+          );
+        }, "with error matching snapshot");
+      });
+
+      it("fails if the event type is not known", () => {
+        expect(() => {
+          expect(
+            <Toggle />,
+            "when mounted",
+            "with event",
+            "press",
+            "to have text",
+            "TRUE"
           );
         }, "with error matching snapshot");
       });
