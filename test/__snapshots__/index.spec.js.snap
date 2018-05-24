@@ -35,3 +35,16 @@ to satisfy <div><div class=\\"label\\">Hello:</div><div>Jane Doe!</div></div>
   </div>
 </div>"
 `;
+
+exports[`unexpected-reaction DOMElement with event fails if it cant find the event target 1`] = `
+"expected <div><span style=\\"color: red\\">FALSE</span></div>
+with event { type: 'click', target: '.foobar' } to have text 'TRUE'
+  expected DOMElement to contain elements matching '.foobar'"
+`;
+
+exports[`unexpected-reaction DOMElement with event fails if the event type is not known 1`] = `
+"expected <div><span style=\\"color: red\\">FALSE</span></div>
+with event 'press' to have text 'TRUE'
+  Event 'press' is not supported by Simulate
+  See https://reactjs.org/docs/events.html#supported-events"
+`;
