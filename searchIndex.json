@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "label": "to satisfy (DOMElement)",
+    "url": "/assertions/DOMElement/to-satisfy/"
+  },
+  {
+    "label": "with event (DOMElement)",
+    "url": "/assertions/DOMElement/with-event/"
+  },
+  {
+    "label": "when mounted (ReactElement)",
+    "url": "/assertions/ReactElement/when-mounted/"
+  }
+]

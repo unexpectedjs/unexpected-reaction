@@ -17,12 +17,14 @@
                     <button class="menu-toggle" onclick="toggleSidebar()"></button>
                 </li>
                 
-                <li class="active"><a href="">unexpected-reaction</a></li>
+                <li class="active"><a href="/">unexpected-reaction</a></li>
+                
+                
+                <li class=""><a href="assertions/DOMElement/to-satisfy/">Assertions</a></li>
                 
                 
                 
-                
-                <li class=""><a href="example">Example</a></li>
+                <li class=""><a href="example/">Example</a></li>
                 
             </ul>
         </nav>
@@ -54,7 +56,7 @@ the DOM rendered by the given JSX structure. The comparison will use
 <a href="https://github.com/sunesimonsen/react-dom-testing/">react-dom-testing</a> and
 <a href="https://munter.github.io/unexpected-dom">unexpected-dom</a> the following way:</p>
 <div class="code lang-javascript"><div><span style="color: #a71d5d">const</span>&nbsp;<span style="color: #000000">{</span>&nbsp;mount&nbsp;<span style="color: #000000">}</span>&nbsp;<span style="color: #a71d5d">=</span>&nbsp;<span style="color: #000000">require</span><span style="color: #000000">(</span><span style="color: #df5000">'react-dom-testing'</span><span style="color: #000000">);</span></div><div>&nbsp;</div><div><span style="color: #000000">expect</span><span style="color: #000000">(</span></div><div>&nbsp;&nbsp;<span style="color: #000000">mount</span><span style="color: #000000">(</span><span style="color: #a71d5d">&lt;</span>Hello<span style="color: #a71d5d">&gt;</span>Jane&nbsp;Doe<span style="color: #a71d5d">&lt;/</span>Hello<span style="color: #a71d5d">&gt;</span><span style="color: #000000">),</span></div><div>&nbsp;&nbsp;<span style="color: #df5000">'to&nbsp;satisfy'</span><span style="color: #000000">,</span></div><div>&nbsp;&nbsp;<span style="color: #000000">mount</span><span style="color: #000000">(</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a71d5d">&lt;</span>div<span style="color: #a71d5d">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a71d5d">&lt;</span>span&nbsp;className<span style="color: #a71d5d">=</span><span style="color: #df5000">&quot;label&quot;</span><span style="color: #a71d5d">&gt;</span>Hello<span style="color: #a71d5d">&lt;/</span>span<span style="color: #a71d5d">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a71d5d">&amp;</span>nbsp<span style="color: #000000">;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a71d5d">&lt;</span>span&nbsp;className<span style="color: #a71d5d">=</span><span style="color: #df5000">&quot;name&quot;</span><span style="color: #a71d5d">&gt;</span>Jane&nbsp;Doe<span style="color: #a71d5d">&lt;/</span>span<span style="color: #a71d5d">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a71d5d">&lt;/</span>div<span style="color: #a71d5d">&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #000000">)</span></div><div><span style="color: #000000">);</span></div></div><h2 id="mit-license">MIT License</h2>
-<p>Copyright (c) 2018 Sune Simonsen <a href="&#x6d;&#x61;&#x69;&#108;&#116;&#111;&#58;&#x73;&#x75;&#x6e;&#x65;&#64;&#x77;&#101;&#x2d;&#107;&#110;&#x6f;&#x77;&#104;&#x6f;&#119;&#46;&#100;&#x6b;">&#x73;&#x75;&#x6e;&#x65;&#64;&#x77;&#101;&#x2d;&#107;&#110;&#x6f;&#x77;&#104;&#x6f;&#119;&#46;&#100;&#x6b;</a></p>
+<p>Copyright (c) 2018 Sune Simonsen <a href="&#109;&#x61;&#x69;&#x6c;&#116;&#x6f;&#58;&#x73;&#117;&#110;&#x65;&#x40;&#x77;&#x65;&#45;&#x6b;&#110;&#x6f;&#119;&#104;&#111;&#x77;&#x2e;&#100;&#107;">&#x73;&#117;&#110;&#x65;&#x40;&#x77;&#x65;&#45;&#x6b;&#110;&#x6f;&#119;&#104;&#111;&#x77;&#x2e;&#100;&#107;</a></p>
 <p>Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
 files (the &#39;Software&#39;), to deal in the Software without
