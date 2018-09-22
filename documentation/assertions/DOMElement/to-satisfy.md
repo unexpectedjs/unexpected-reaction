@@ -1,7 +1,7 @@
 An assertion to satisfy a DOMElement against a JSX structure.
 
 This assertion just renders the JSX structure and uses
-[unexpected-dom](https://munter.github.io/unexpected-dom/assertions/DOMNodeList/to-satisfy/)
+[unexpected-dom](https://unexpected.js.org/unexpected-dom/assertions/DOMNodeList/to-satisfy/)
 to compare the structures.
 
 ```js

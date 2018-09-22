@@ -7,7 +7,7 @@ repository: https://github.com/unexpectedjs/unexpected-reaction
 
 # unexpected-reaction
 
-An Unexpected plugin to make React testing with [unexpected-dom](https://munter.github.io/unexpected-dom/) more convenient.
+An Unexpected plugin to make React testing with [unexpected-dom](https://unexpected.js.org/unexpected-dom/) more convenient.
 
 ![unexpected-reaction](https://media.giphy.com/media/l46CwgcMQr6Si3uGk/giphy.gif)
 
@@ -58,7 +58,7 @@ expect(
 You can also satisfy a mounted component against a JSX structure. This will
 mount the JSX structure into the DOM and compare the mounted component under test with
 the DOM rendered by the given JSX structure. The comparison will use 
-`to satisfy` from [unexpected-dom](https://munter.github.io/unexpected-dom/assertions/DOMElement/to-satisfy/).
+`to satisfy` from [unexpected-dom](https://unexpected.js.org/unexpected-dom/assertions/DOMElement/to-satisfy/).
 
 ```js
 expect(
@@ -75,7 +75,7 @@ expect(
 
 This is similar to using
 [react-dom-testing](https://github.com/sunesimonsen/react-dom-testing/) and
-[unexpected-dom](https://munter.github.io/unexpected-dom) the following way:
+[unexpected-dom](https://unexpected.js.org/unexpected-dom/) the following way:
 
 ```js
 const { mount } = require('react-dom-testing');

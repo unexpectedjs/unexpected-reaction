@@ -14,7 +14,7 @@ const Hello = ({ children }) => (
 ); 
 ```
 
-Now we can mount it using the assertion and assert that I has the correct text using an [unexpected-dom assertion](https://munter.github.io/unexpected-dom/assertions/DOMElement/to-have-text/):
+Now we can mount it using the assertion and assert that I has the correct text using an [unexpected-dom assertion](https://unexpected.js.org/unexpected-dom/assertions/DOMElement/to-have-text/):
 
 ```js
 expect(
