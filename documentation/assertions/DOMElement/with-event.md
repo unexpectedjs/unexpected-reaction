@@ -52,7 +52,7 @@ expect(onClick, 'to have calls satisfying', () => {
 Let's use a sign-up form for the example:
 
 ```js
-class SignupForm extends React.Component {
+class SignUpForm extends React.Component {
   constructor(props) {
     super();
 
@@ -135,7 +135,7 @@ values.
 let onSubmit = sinon.spy();
 
 expect(
-  <LoginForm onSubmit={onSubmit} />,
+  <SignUpForm onSubmit={onSubmit} />,
   "when mounted",
   "with events", [
     {
@@ -173,7 +173,7 @@ entering any data:
 onSubmit = sinon.spy()
 
 expect(
-  <LoginForm onSubmit={onSubmit} />,
+  <SignUpForm onSubmit={onSubmit} />,
   "when mounted",
   "with event", {
     type: "click",
