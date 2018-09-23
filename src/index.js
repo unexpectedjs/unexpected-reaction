@@ -40,18 +40,17 @@ module.exports = {
       (expect, subject, value) => {
         expect.errorMode = "nested";
 
-        []
-          .concat(value)
-          .filter(event => event.target)
-          .forEach(event =>
-            expect(subject, "to contain elements matching", event.target)
-          );
+        [].concat(value).forEach(event => {
+          if (typeof event.target === "string") {
+            expect(subject, "to contain elements matching", event.target);
+          }
 
-        try {
-          simulate(subject, value);
-        } catch (err) {
-          expect.fail(err.message);
-        }
+          try {
+            simulate(subject, event);
+          } catch (err) {
+            expect.fail(err.message);
+          }
+        });
 
         return expect.shift(subject);
       }
