@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import expect from "./unexpected-with-plugins";
-import { mount, Simulate } from "react-dom-testing";
+import { mount, simulate } from "react-dom-testing";
 
 class Hello extends Component {
   render() {
@@ -171,7 +171,7 @@ describe("unexpected-reaction", () => {
             </div>
           );
 
-          Simulate.click(mounted);
+          simulate(mounted, "click");
 
           expect(
             mounted,

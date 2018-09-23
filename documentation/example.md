@@ -105,7 +105,7 @@ changed. We do that by simulating a change on the input field and check that the
 callback is called with the correct value:
 
 ```js
-const { mount, Simulate } = require("react-dom-testing");
+const { mount, simulate } = require("react-dom-testing");
 expect.use(require("unexpected-sinon"));
 const sinon = require("sinon");
 
@@ -119,10 +119,11 @@ const temperatureInput = mount(
   />
 );
 
-const inputField = temperatureInput.querySelector("input");
-
-inputField.value = "75";
-Simulate.change(inputField);
+simulate(temperatureInput, {
+  type: "change",
+  target: "input",
+  value: "75"
+});
 
 expect(onChangeSpy, "to have calls satisfying", () => {
   onChangeSpy("75");
@@ -197,15 +198,12 @@ degrees Celsius.
 
 ```js
 const temperatureCalculator = mount(<TemperaturCalculator />);
-const celsiusInput = temperatureCalculator.querySelector(
-  "[data-test-id=celsius-input]"
-);
-const fahrenheitInput = temperatureCalculator.querySelector(
-  "[data-test-id=fahrenheit-input]"
-);
 
-celsiusInput.value = "33";
-Simulate.change(celsiusInput);
+simulate(temperatureCalculator, {
+  type: "change",
+  target: "[data-test-id=celsius-input]",
+  value: "33"
+});
 
 expect(
   temperatureCalculator,
@@ -227,8 +225,11 @@ It is probably also a good idea to check that the conversion works in the
 opposite direction:
 
 ```js
-fahrenheitInput.value = "220";
-Simulate.change(fahrenheitInput);
+simulate(temperatureCalculator, {
+  type: "change",
+  target: "[data-test-id=fahrenheit-input]",
+  value: "220"
+});
 
 expect(
   temperatureCalculator,

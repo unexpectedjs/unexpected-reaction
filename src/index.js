@@ -1,4 +1,4 @@
-const { mount, Simulate } = require("react-dom-testing");
+const { mount, simulate } = require("react-dom-testing");
 
 module.exports = {
   name: "unexpected-reaction",
@@ -42,29 +42,16 @@ module.exports = {
 
         []
           .concat(value)
-          .map(event => (typeof event === "string" ? { type: event } : event))
-          .forEach(event => {
-            let target = subject;
+          .filter(event => event.target)
+          .forEach(event =>
+            expect(subject, "to contain elements matching", event.target)
+          );
 
-            if (event.target) {
-              expect(subject, "to contain elements matching", event.target);
-              target = subject.querySelector(event.target);
-            }
-
-            if (event.type === "change" && typeof event.value === "string") {
-              target.value = event.value;
-            }
-
-            if (!Simulate[event.type]) {
-              expect.fail(
-                `Event '${
-                  event.type
-                }' is not supported by Simulate\nSee https://reactjs.org/docs/events.html#supported-events`
-              );
-            }
-
-            Simulate[event.type](target, event.data);
-          });
+        try {
+          simulate(subject, value);
+        } catch (err) {
+          expect.fail(err.message);
+        }
 
         return expect.shift(subject);
       }
