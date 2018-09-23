@@ -49,10 +49,10 @@ expect(onClick, 'to have calls satisfying', () => {
 });
 ```
 
-Let's use a login form for the example:
+Let's use a sign-up form for the example:
 
 ```js
-class LoginForm extends React.Component {
+class SignupForm extends React.Component {
   constructor(props) {
     super();
 
@@ -112,7 +112,7 @@ class LoginForm extends React.Component {
               </span>
             )}
         </fieldset>
-        <button onClick={this.onSubmit}>Login</button>
+        <button onClick={this.onSubmit}>Sign up</button>
       </form>
     );
   }
@@ -128,7 +128,8 @@ submit function.
 Then we will use the `with events` assertion to fill out the username and
 password and click on the submit button.
 
-Finally we will check that the `onSubmit` function was called with the expected values.
+Finally we will check that the `onSubmit` function was called with the expected
+values.
 
 ```js
 let onSubmit = sinon.spy();
@@ -159,7 +160,11 @@ expect(onSubmit, "to have calls satisfying", () => {
 });
 ```
 
-For a case where we don't assert anything on the rendered structure after issuing the events, it is probably more natural to use the [simulate](https://github.com/sunesimonsen/react-dom-testing#simulate) function from [react-dom-testing](https://github.com/sunesimonsen/react-dom-testing) instead.
+For a case where we don't assert anything on the rendered structure after
+issuing the events, it is probably more natural to use the
+[simulate](https://github.com/sunesimonsen/react-dom-testing#simulate) function
+from [react-dom-testing](https://github.com/sunesimonsen/react-dom-testing)
+instead.
 
 Let's see that we get a validations messages if we submit the form without
 entering any data:
