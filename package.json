@@ -54,7 +54,7 @@
     "sinon": "4.5.0",
     "unexpected": "10.37.5",
     "unexpected-documentation-site-generator": "4.7.1",
-    "unexpected-dom": "4.5.0",
+    "unexpected-dom": "4.9.4",
     "unexpected-markdown": "1.7.4",
     "unexpected-sinon": "10.9.0"
   },
