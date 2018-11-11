@@ -15,19 +15,21 @@ const expect = unexpected
   .addAssertion(
     "<function> with error matching snapshot",
     (expect, subject) => {
-      return expect.promise(() => subject()).then(
-        () => expect.fail(),
-        error => {
-          if (error && error._isUnexpected) {
-            expect(
-              error.getErrorMessage("text").toString(),
-              "to match snapshot"
-            );
-          } else {
-            expect(error.message, "to match snapshot");
+      return expect
+        .promise(() => subject())
+        .then(
+          () => expect.fail(),
+          error => {
+            if (error && error._isUnexpected) {
+              expect(
+                error.getErrorMessage("text").toString(),
+                "to match snapshot"
+              );
+            } else {
+              expect(error.message, "to match snapshot");
+            }
           }
-        }
-      );
+        );
     }
   );
 
