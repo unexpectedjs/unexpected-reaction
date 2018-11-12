@@ -42,7 +42,7 @@
     "eslint-config-pretty-standard": "^2.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-prettier": "^3.0.0",
-    "jest": "^22.4.2",
+    "jest": "^23.6.0",
     "jsdom": "^11.7.0",
     "mocha": "^5.0.5",
     "prettier": "~1.15.2",
