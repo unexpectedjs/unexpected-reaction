@@ -51,7 +51,7 @@
     "react-dom": "^16.3.1",
     "react-dom-testing": "^1.5.0",
     "serve": "^10.0.1",
-    "sinon": "^4.5.0",
+    "sinon": "^7.1.1",
     "unexpected": "^10.37.5",
     "unexpected-documentation-site-generator": "^4.7.1",
     "unexpected-dom": "^4.9.4",
