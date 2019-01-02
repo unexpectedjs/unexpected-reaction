@@ -55,7 +55,7 @@
     "unexpected": "^10.40.0",
     "unexpected-documentation-site-generator": "^5.0.0",
     "unexpected-dom": "^4.10.0",
-    "unexpected-markdown": "^1.7.4",
+    "unexpected-markdown": "^2.0.0",
     "unexpected-sinon": "^10.9.0"
   },
   "peerDependencies": {
