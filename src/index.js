@@ -1,6 +1,6 @@
 const { mount, simulate } = require("react-dom-testing");
 
-module.exports = {
+const unexpectedReaction = {
   name: "unexpected-reaction",
   installInto: expect => {
     expect.addType({
@@ -57,3 +57,5 @@ module.exports = {
     );
   }
 };
+
+module.exports = unexpectedReaction;

@@ -8,7 +8,8 @@ module.exports = {
       {
         devDependencies: [
           "**/test/**/*.js",
-          "./bootstrap-unexpected-markdown.js"
+          "./bootstrap-unexpected-markdown.js",
+          "./rollup.config.js"
         ],
         optionalDependencies: false,
         peerDependencies: true
