@@ -164,7 +164,11 @@ For a case where we don't assert anything on the rendered structure after
 issuing the events, it is probably more natural to use the
 [simulate](https://github.com/sunesimonsen/react-dom-testing#simulate) function
 from [react-dom-testing](https://github.com/sunesimonsen/react-dom-testing)
-instead.
+instead. This function is exported by unexpected-reaction as a convenience:
+
+```js#evaluate:false
+const { simulate } = require('unexpected-reaction');
+```
 
 Let's see that we get a validations messages if we submit the form without
 entering any data:

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import expect from "./unexpected-with-plugins";
-import { mount, simulate } from "react-dom-testing";
+import { mount, simulate } from "../src/";
 
 class Hello extends Component {
   render() {

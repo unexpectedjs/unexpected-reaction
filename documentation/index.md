@@ -73,12 +73,13 @@ expect(
 )
 ```
 
-This is similar to using
-[react-dom-testing](https://github.com/sunesimonsen/react-dom-testing/) and
-[unexpected-dom](https://unexpected.js.org/unexpected-dom/) the following way:
+This is similar to programatically mounting the component and
+asserting against the result via [unexpected-dom](https://unexpected.js.org/unexpected-dom/)
+in the following way:
+
 
 ```js
-const { mount } = require('react-dom-testing');
+const { mount } = require('unexpected-reaction');
 
 expect(
   mount(<Hello>Jane Doe</Hello>),
@@ -92,6 +93,10 @@ expect(
   )
 );
 ```
+
+The mount method is provided by
+[react-dom-testing](https://github.com/sunesimonsen/react-dom-testing/)
+and is exported as a convenience.
 
 ## MIT License
 

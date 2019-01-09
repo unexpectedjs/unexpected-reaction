@@ -5,9 +5,9 @@ theme: light
 repository: https://github.com/unexpectedjs/unexpected-reaction
 ---
 
-In this example I will show you how you can use react-dom-testing,
-unexpected-reaction and unexpected-dom to test a temperature converter. The
-example is totally stolen from: https://reactjs.org/docs/lifting-state-up.html
+In this example I will show you how you can use unexpected-reaction
+to test a temperature converter. The example is totally stolen from:
+https://reactjs.org/docs/lifting-state-up.html
 
 We start out by building a boiling verdict, that will tell you if water is
 boiling for a given Celsius temperature:
@@ -105,7 +105,7 @@ changed. We do that by simulating a change on the input field and check that the
 callback is called with the correct value:
 
 ```js
-const { mount, simulate } = require("react-dom-testing");
+const { mount, simulate } = require("unexpected-react");
 expect.use(require("unexpected-sinon"));
 const sinon = require("sinon");
 
