@@ -77,10 +77,11 @@ This is similar to programatically mounting the component and
 asserting against the result via [unexpected-dom](https://unexpected.js.org/unexpected-dom/)
 in the following way:
 
+```js#evaluate:false
+const { mount } = require("unexpected-reaction");
+```
 
 ```js
-const { mount } = require('unexpected-reaction');
-
 expect(
   mount(<Hello>Jane Doe</Hello>),
   'to satisfy',

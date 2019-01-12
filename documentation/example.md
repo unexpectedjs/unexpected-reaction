@@ -104,8 +104,11 @@ We can also make sure that we get an event with the correct value when the input
 changed. We do that by simulating a change on the input field and check that the
 callback is called with the correct value:
 
+```js#evaluate:false
+const { mount, simulate } = require("unexpected-reaction");
+```
+
 ```js
-const { mount, simulate } = require("unexpected-react");
 expect.use(require("unexpected-sinon"));
 const sinon = require("sinon");
 
