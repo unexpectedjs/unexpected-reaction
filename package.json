@@ -17,7 +17,7 @@
     "generate-site": "generate-site --require ./test/bootstrap-unexpected-markdown.js",
     "update-examples": "generate-site --require ./test/bootstrap-unexpected-markdown.js --update-examples",
     "deploy-site": "deploy-site.sh",
-    "ci": "npm run lint && npm test"
+    "ci": "npm run lint && npm test && npm run test-headless"
   },
   "bugs": "https://github.com/unexpectedjs/unexpected-reaction",
   "repository": {
