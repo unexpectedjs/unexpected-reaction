@@ -1,18 +1,20 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+const { React, Component, PropTypes, expect, mount, simulate } =
+  typeof require === "undefined"
+    ? window.testGlobals
+    : require("./common/node");
 
-import expect from "./unexpected-with-plugins";
-import { mount, simulate } from "../src/";
+it.onlyNode = typeof require === "undefined" ? it.skip : it;
 
 class Hello extends Component {
   render() {
-    const { children, ...other } = this.props;
+    const other = Object.assign({}, this.props);
+    delete other.children;
 
     return (
       <div {...other}>
         <div className="label">Hello:</div>
         <div className="value" data-test="value">
-          {children}
+          {this.props.children}
         </div>
       </div>
     );
@@ -145,7 +147,7 @@ describe("unexpected-reaction", () => {
         );
       });
 
-      it("fails with a diff", () => {
+      it.onlyNode("fails with a diff", () => {
         expect(() => {
           expect(
             <Hello>Jane Doe</Hello>,
@@ -199,7 +201,7 @@ describe("unexpected-reaction", () => {
         );
       });
 
-      it("fails with a diff", () => {
+      it.onlyNode("fails with a diff", () => {
         expect(() => {
           expect(
             <Hello data-test-id="hello">Jane Doe</Hello>,
@@ -288,7 +290,7 @@ describe("unexpected-reaction", () => {
         });
       });
 
-      it("fails if it cant find the event target", () => {
+      it.onlyNode("fails if it cant find the event target", () => {
         expect(() => {
           expect(
             <Toggle />,
@@ -301,7 +303,7 @@ describe("unexpected-reaction", () => {
         }, "with error matching snapshot");
       });
 
-      it("fails if the event type is not known", () => {
+      it.onlyNode("fails if the event type is not known", () => {
         expect(() => {
           expect(
             <Toggle />,
