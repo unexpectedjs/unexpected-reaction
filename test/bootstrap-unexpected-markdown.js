@@ -1,8 +1,11 @@
-global.unexpected = require("unexpected").clone();
-global.unexpected.output.preferredWidth = 80;
-global.unexpected.use(require("unexpected-dom"));
-global.unexpectedReact = require("../src/");
-global.unexpected.use(global.unexpectedReact);
+const {
+  React,
+  Component,
+  PropTypes,
+  expect,
+  mount,
+  simulate
+} = require('./common/node');
 
 if (!global.window) {
   const jsdom = require("jsdom");
@@ -10,6 +13,8 @@ if (!global.window) {
   global.document = window.document;
 }
 
+global.unexpected = expect;
+global.unexpected.output.preferredWidth = 80;
 global.expect = global.unexpected;
-global.mount = global.unexpectedReact.mount;
-global.simulate = global.unexpectedReact.simulate;
+global.mount = mount;
+global.simulate = simulate;
