@@ -4,7 +4,8 @@
   "description": "An Unexpected plugin to make React testing with unexpected-dom more convenient",
   "main": "./lib/index.js",
   "files": [
-    "lib"
+    "lib",
+    "unexpected-reaction.js"
   ],
   "scripts": {
     "build": "babel --out-dir lib --quiet src && rollup -c",
