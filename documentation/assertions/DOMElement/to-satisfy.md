@@ -33,7 +33,7 @@ The assertion allows you to leave out attributes you don't care about, or ignore
 complete sub-trees:
 
 ```js
-const { Ignore } = require('react-dom-testing');
+const { Ignore } = require('unexpected-react');
 
 expect(
   <Hello>Jane Doe</Hello>,

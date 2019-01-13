@@ -1,6 +1,6 @@
-const { mount, simulate } = require("react-dom-testing");
+const { Ignore, mount, simulate } = require("react-dom-testing");
 
-module.exports = {
+const unexpectedReaction = {
   name: "unexpected-reaction",
   installInto: expect => {
     expect.addType({
@@ -57,3 +57,9 @@ module.exports = {
     );
   }
 };
+
+unexpectedReaction.Ignore = Ignore;
+unexpectedReaction.mount = mount;
+unexpectedReaction.simulate = simulate;
+
+module.exports = unexpectedReaction;

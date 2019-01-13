@@ -1,16 +1,12 @@
-import unexpected from "unexpected";
-import unexpectedDom from "unexpected-dom";
-import unexpectedReaction from "../src/";
+global.unexpected = require("unexpected").clone();
+global.unexpected.output.preferredWidth = 80;
+global.unexpected.use(require("unexpected-dom"));
+global.unexpectedReact = require("../src/");
+global.unexpected.use(global.unexpectedReact);
 
-const jestExpect = global.expect;
-
-const expect = unexpected
-  .clone()
-  .use(unexpectedDom)
-  .use(unexpectedReaction)
-
+global.unexpected
   .addAssertion("<any> to match snapshot", (expect, subject) => {
-    jestExpect(subject).toMatchSnapshot();
+    global.expect(subject).toMatchSnapshot();
   })
   .addAssertion(
     "<function> with error matching snapshot",
@@ -33,6 +29,6 @@ const expect = unexpected
     }
   );
 
-expect.output.preferredWidth = 80;
+global.unexpected.output.preferredWidth = 80;
 
-export default expect;
+module.exports = global.unexpected;

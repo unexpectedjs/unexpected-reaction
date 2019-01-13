@@ -4,18 +4,21 @@
   "description": "An Unexpected plugin to make React testing with unexpected-dom more convenient",
   "main": "./lib/index.js",
   "files": [
-    "lib"
+    "lib",
+    "unexpected-reaction.js"
   ],
   "scripts": {
-    "build": "babel --out-dir lib --quiet src",
+    "build": "babel --out-dir lib --quiet src && rollup -c",
+    "build-tests": "babel --out-dir build --quiet test/index.spec.js",
     "lint": "eslint .",
     "prepare": "npm run build",
     "test": "jest && npm run test:documentation",
+    "test-headless": "npm run build-tests && karma start --single-run",
     "test:documentation": "mocha documentation",
     "generate-site": "generate-site --require ./test/bootstrap-unexpected-markdown.js",
     "update-examples": "generate-site --require ./test/bootstrap-unexpected-markdown.js --update-examples",
     "deploy-site": "deploy-site.sh",
-    "ci": "npm run lint && npm test"
+    "ci": "npm run lint && npm test && npm run test-headless"
   },
   "bugs": "https://github.com/unexpectedjs/unexpected-reaction",
   "repository": {
@@ -44,12 +47,19 @@
     "eslint-plugin-prettier": "^3.0.0",
     "jest": "^23.6.0",
     "jsdom": "^13.0.0",
+    "karma": "^3.1.4",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-mocha": "^1.3.0",
     "mocha": "^5.0.5",
     "prettier": "~1.15.2",
     "prop-types": "^15.6.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-dom-testing": "^1.5.0",
+    "rollup": "^1.0.2",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-globals": "^1.4.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
     "serve": "^10.0.1",
     "sinon": "^7.1.1",
     "unexpected": "^11.0.0-4",

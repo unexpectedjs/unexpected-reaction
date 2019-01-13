@@ -24,12 +24,10 @@ expect(
 );
 ```
 
-This is similar to using
-[react-dom-testing](https://github.com/sunesimonsen/react-dom-testing/) the
-following way:
+This is similar to the mount function in the following way:
 
 ```js
-const { mount } = require('react-dom-testing');
+const { mount } = require('unexpected-reaction');
 
 expect(
   mount(<Hello>Jane Doe</Hello>),
@@ -37,3 +35,6 @@ expect(
 );
 ```
 
+The mount method is provided by
+[react-dom-testing](https://github.com/sunesimonsen/react-dom-testing/)
+and is exported as a convenience.
