@@ -1,11 +1,4 @@
-const {
-  React,
-  Component,
-  PropTypes,
-  expect,
-  mount,
-  simulate
-} = require('./common/node');
+const { expect, mount, simulate } = require("./common/node");
 
 if (!global.window) {
   const jsdom = require("jsdom");
