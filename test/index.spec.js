@@ -7,14 +7,13 @@ it.onlyNode = typeof require === "undefined" ? it.skip : it;
 
 class Hello extends Component {
   render() {
-    const other = Object.assign({}, this.props);
-    delete other.children;
+    const { children, className, testId } = this.props;
 
     return (
-      <div {...other}>
+      <div className={className} data-test-id={testId}>
         <div className="label">Hello:</div>
         <div className="value" data-test="value">
-          {this.props.children}
+          {children}
         </div>
       </div>
     );
@@ -22,7 +21,9 @@ class Hello extends Component {
 }
 
 Hello.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  className: PropTypes.any,
+  testId: PropTypes.string
 };
 
 const Stateless = ({ className, children }) => (
@@ -189,7 +190,7 @@ describe("unexpected-reaction", () => {
     describe("to exhaustivily satisfy", () => {
       it("mounts the given ReactElement and satisfies the subject against it", () => {
         expect(
-          <Hello data-test-id="hello">Jane Doe</Hello>,
+          <Hello testId="hello">Jane Doe</Hello>,
           "when mounted",
           "to exhaustively satisfy",
           <div data-test-id="hello">
@@ -204,7 +205,7 @@ describe("unexpected-reaction", () => {
       it.onlyNode("fails with a diff", () => {
         expect(() => {
           expect(
-            <Hello data-test-id="hello">Jane Doe</Hello>,
+            <Hello testId="hello">Jane Doe</Hello>,
             "when mounted",
             "to exhaustively satisfy",
             <div>
