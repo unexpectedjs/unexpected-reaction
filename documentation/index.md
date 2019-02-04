@@ -95,9 +95,9 @@ expect(
 );
 ```
 
-The mount method is provided by
+This library exposes all of the methods from 
 [react-dom-testing](https://github.com/sunesimonsen/react-dom-testing/)
-and is exported as a convenience.
+for convenience.
 
 ## MIT License
 
