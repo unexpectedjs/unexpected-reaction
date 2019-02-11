@@ -61,11 +61,11 @@
     "rollup-plugin-node-resolve": "^4.0.0",
     "serve": "^10.0.1",
     "sinon": "^7.1.1",
-    "unexpected": "^11.0.0-4",
+    "unexpected": "^11.0.1",
     "unexpected-documentation-site-generator": "^6.0.0",
-    "unexpected-dom": "^4.10.0",
+    "unexpected-dom": "^4.11.1",
     "unexpected-markdown": "^3.0.0",
-    "unexpected-sinon": "^10.9.0"
+    "unexpected-sinon": "^10.11.0"
   },
   "dependencies": {
     "react-dom-testing": "^1.7.0"
