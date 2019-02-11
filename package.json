@@ -53,25 +53,26 @@
     "mocha": "^5.0.5",
     "prettier": "~1.16.0",
     "prop-types": "^15.6.1",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1",
-    "react-dom-testing": "^1.6.0",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
     "rollup": "^1.0.2",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-node-resolve": "^4.0.0",
     "serve": "^10.0.1",
     "sinon": "^7.1.1",
-    "unexpected": "^11.0.0-4",
+    "unexpected": "^11.0.1",
     "unexpected-documentation-site-generator": "^6.0.0",
-    "unexpected-dom": "^4.10.0",
+    "unexpected-dom": "^4.11.1",
     "unexpected-markdown": "^3.0.0",
-    "unexpected-sinon": "^10.9.0"
+    "unexpected-sinon": "^10.11.0"
+  },
+  "dependencies": {
+    "react-dom-testing": "^1.7.0"
   },
   "peerDependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-dom-testing": "^1.6.0",
     "unexpected": "^10.40.0 || ^11.0.0-4"
   }
 }
