@@ -2542,6 +2542,11 @@
 	      return expect(subject, "to [exhaustively] satisfy", mount(value));
 	    });
 
+	    expect.addAssertion("<DOMElement> [not] to contain <ReactElement>", function (expect, subject, value) {
+	      expect.errorMode = "bubble";
+	      return expect(subject, "[not] to contain", mount(value));
+	    });
+
 	    expect.addAssertion("<DOMElement> with (event|events) <array|object|string> <assertion?>", function (expect, subject, value) {
 	      expect.errorMode = "nested";
 

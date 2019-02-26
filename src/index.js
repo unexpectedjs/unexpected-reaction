@@ -36,6 +36,14 @@ const unexpectedReaction = {
     );
 
     expect.addAssertion(
+      "<DOMElement> [not] to contain <ReactElement>",
+      (expect, subject, value) => {
+        expect.errorMode = "bubble";
+        return expect(subject, "[not] to contain", mount(value));
+      }
+    );
+
+    expect.addAssertion(
       "<DOMElement> with (event|events) <array|object|string> <assertion?>",
       (expect, subject, value) => {
         expect.errorMode = "nested";
