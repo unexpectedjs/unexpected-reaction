@@ -1,3 +1,4 @@
 --require babel-register
 --require test/bootstrap-unexpected-markdown.js
 --compilers md:unexpected-markdown
+--recursive
