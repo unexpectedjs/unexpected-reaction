@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+const React = require("react");
+const PropTypes = require("prop-types");
 
-import expect from "../unexpected-with-plugins";
-import { Ignore, mount, simulate, unmount } from "../../src/";
+const expect = require("../unexpected-with-plugins");
+const { Ignore, mount, simulate, unmount } = require("../../src/");
 
 module.exports = {
   React,
-  Component,
+  Component: React.Component,
   PropTypes,
   Ignore,
   expect,
