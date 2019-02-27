@@ -1,4 +1,4 @@
-const { expect, mount, simulate } = require("./common/node");
+const { expect, Ignore, mount, simulate, unmount } = require("./common/node");
 
 if (!global.window) {
   const jsdom = require("jsdom");
@@ -10,4 +10,6 @@ global.unexpected = expect;
 global.unexpected.output.preferredWidth = 80;
 global.expect = global.unexpected;
 global.mount = mount;
+global.unmount = unmount;
+global.Ignore = Ignore;
 global.simulate = simulate;

@@ -13,7 +13,7 @@ const Hello = ({ children }) => (
     &nbsp;
     <span className="name">{children}</span>
   </div>
-); 
+);
 ```
 
 ```js
@@ -32,9 +32,13 @@ expect(
 The assertion allows you to leave out attributes you don't care about, or ignore
 complete sub-trees:
 
-```js
-const { Ignore } = require('unexpected-react');
+<!-- unexpected-markdown evaluate:false -->
 
+```js
+const { Ignore } = require('unexpected-reaction');
+```
+
+```js
 expect(
   <Hello>Jane Doe</Hello>,
   'when mounted',

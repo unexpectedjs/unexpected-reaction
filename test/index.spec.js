@@ -219,6 +219,28 @@ describe("unexpected-reaction", () => {
       });
     });
 
+    describe("to contain", () => {
+      it("mounts the given ReactElement and asserts that the subject contains a descendant element satisfying the mounted element", () => {
+        expect(
+          <Hello>Jane Doe</Hello>,
+          "when mounted",
+          "to contain",
+          <div className="label">Hello:</div>
+        );
+      });
+    });
+
+    describe("not to contain", () => {
+      it("mounts the given ReactElement and asserts that the subject doesn't contain a descendant element satisfying the mounted element", () => {
+        expect(
+          <Hello>Jane Doe</Hello>,
+          "when mounted",
+          "not to contain",
+          <div data-test="value">John Doe</div>
+        );
+      });
+    });
+
     describe("with event", () => {
       describe("when given a string", () => {
         it("invokes the given event type on the subject", () => {
