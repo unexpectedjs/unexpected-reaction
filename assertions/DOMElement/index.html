@@ -9,7 +9,7 @@
     <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../../static/bug-icon-black.ico">
     <title>DOMElement</title>
 </head>
-<body class="sidebar-hidden has-sidebar"> 
+<body class="sidebar-hidden has-sidebar">
     <header>
         <div class="logo-icon"></div>
         <nav>
@@ -21,7 +21,7 @@
                 <li class=""><a href="../../">unexpected-reaction</a></li>
                 
                 
-                <li class="active"><a href="to-satisfy/">Assertions</a></li>
+                <li class="active"><a href="to-contain/">Assertions</a></li>
                 
                 
                 
@@ -40,8 +40,12 @@
 <section id="assertions">
     <nav id="assertion-menu" class="sidebar js-remember-scroll-position">
     
-        <h3 class="active"><a href="/">DOMElement</a></h3>
+        <h3 class="active"><a href="./">DOMElement</a></h3>
         <ul>
+            
+            <li class="">
+                <a href="to-contain/">to contain</a>
+            </li>
             
             <li class="">
                 <a href="to-satisfy/">to satisfy</a>
@@ -69,11 +73,19 @@
             <h1>DOMElement</h1>
             <ul class="declarations">
                 
+                <li>&lt;DOMElement&gt; [not] to contain &lt;DOMElement|object|string&gt;</li>
+                
+                <li>&lt;DOMElement&gt; [not] to contain &lt;ReactElement&gt;</li>
+                
+                <li>&lt;DOMElement&gt; to [exhaustively] satisfy &lt;DOMIgnoreComment&gt;</li>
+                
                 <li>&lt;DOMElement&gt; to [exhaustively] satisfy &lt;DOMTextNode&gt;</li>
                 
                 <li>&lt;DOMElement&gt; to [exhaustively] satisfy &lt;DOMElement&gt;</li>
                 
                 <li>&lt;DOMElement&gt; to [exhaustively] satisfy &lt;ReactElement&gt;</li>
+                
+                <li>&lt;DOMElement&gt; to [exhaustively] satisfy &lt;regexp&gt;</li>
                 
                 <li>&lt;DOMElement&gt; to [exhaustively] satisfy &lt;object&gt;</li>
                 

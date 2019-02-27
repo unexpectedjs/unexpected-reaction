@@ -1,5 +1,9 @@
 [
   {
+    "label": "to contain (DOMElement)",
+    "url": "/assertions/DOMElement/to-contain/"
+  },
+  {
     "label": "to satisfy (DOMElement)",
     "url": "/assertions/DOMElement/to-satisfy/"
   },

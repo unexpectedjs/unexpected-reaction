@@ -9,7 +9,7 @@
     <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../../../static/bug-icon-black.ico">
     <title>ReactElement - when mounted</title>
 </head>
-<body class="sidebar-hidden has-sidebar"> 
+<body class="sidebar-hidden has-sidebar">
     <header>
         <div class="logo-icon"></div>
         <nav>
@@ -21,7 +21,7 @@
                 <li class=""><a href="../../../">unexpected-reaction</a></li>
                 
                 
-                <li class="active"><a href="../../DOMElement/to-satisfy/">Assertions</a></li>
+                <li class="active"><a href="../../DOMElement/to-contain/">Assertions</a></li>
                 
                 
                 
@@ -44,6 +44,10 @@
         <ul>
             
             <li class="">
+                <a href="../../DOMElement/to-contain/">to contain</a>
+            </li>
+            
+            <li class="">
                 <a href="../../DOMElement/to-satisfy/">to satisfy</a>
             </li>
             
@@ -57,7 +61,7 @@
         <ul>
             
             <li class="active">
-                <a href="/">when mounted</a>
+                <a href="./">when mounted</a>
             </li>
             
         </ul>
@@ -77,10 +81,12 @@
             <p>This will assertion will mount the JSX structure into the DOM and forward it to the next assertion.</p>
 <p>Let&#39;s create a component for the example:</p>
 <div class="code lang-javascript"><div><span style="color: #a71d5d">const</span>&nbsp;React&nbsp;<span style="color: #a71d5d">=</span>&nbsp;<span style="color: #000000">require</span><span style="color: #000000">(</span><span style="color: #df5000">&quot;react&quot;</span><span style="color: #000000">);</span></div><div>&nbsp;</div><div><span style="color: #a71d5d">const</span>&nbsp;<span style="color: #000000">Hello</span>&nbsp;<span style="color: #a71d5d">=</span>&nbsp;<span style="color: #000000">({</span>&nbsp;children&nbsp;<span style="color: #000000">})</span>&nbsp;<span style="color: #a71d5d">=&gt;</span>&nbsp;<span style="color: #000000">(</span></div><div>&nbsp;&nbsp;<span style="color: #a71d5d">&lt;</span>div<span style="color: #a71d5d">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a71d5d">&lt;</span>span&nbsp;className<span style="color: #a71d5d">=</span><span style="color: #df5000">&quot;label&quot;</span><span style="color: #a71d5d">&gt;</span>Hello<span style="color: #a71d5d">&lt;/</span>span<span style="color: #a71d5d">&gt;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a71d5d">&amp;</span>nbsp<span style="color: #000000">;</span></div><div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #a71d5d">&lt;</span>span&nbsp;className<span style="color: #a71d5d">=</span><span style="color: #df5000">&quot;name&quot;</span><span style="color: #a71d5d">&gt;</span><span style="color: #000000">{</span>children<span style="color: #000000">}</span><span style="color: #a71d5d">&lt;/</span>span<span style="color: #a71d5d">&gt;</span></div><div>&nbsp;&nbsp;<span style="color: #a71d5d">&lt;/</span>div<span style="color: #a71d5d">&gt;</span></div><div><span style="color: #000000">);</span>&nbsp;</div></div><p>Now we can mount it using the assertion and assert that I has the correct text using an <a href="https://unexpected.js.org/unexpected-dom/assertions/DOMElement/to-have-text/">unexpected-dom assertion</a>:</p>
-<div class="code lang-javascript"><div><span style="color: #000000">expect</span><span style="color: #000000">(</span></div><div>&nbsp;&nbsp;<span style="color: #a71d5d">&lt;</span>Hello<span style="color: #a71d5d">&gt;</span>Jane&nbsp;Doe<span style="color: #a71d5d">&lt;/</span>Hello<span style="color: #a71d5d">&gt;</span><span style="color: #000000">,</span></div><div>&nbsp;&nbsp;<span style="color: #df5000">'when&nbsp;mounted'</span><span style="color: #000000">,</span></div><div>&nbsp;&nbsp;<span style="color: #df5000">'to&nbsp;have&nbsp;text'</span><span style="color: #000000">,</span>&nbsp;<span style="color: #df5000">'Hello&nbsp;Jane&nbsp;Doe'</span></div><div><span style="color: #000000">);</span></div></div><p>This is similar to using
-<a href="https://github.com/sunesimonsen/react-dom-testing/">react-dom-testing</a> the
-following way:</p>
-<div class="code lang-javascript"><div><span style="color: #a71d5d">const</span>&nbsp;<span style="color: #000000">{</span>&nbsp;mount&nbsp;<span style="color: #000000">}</span>&nbsp;<span style="color: #a71d5d">=</span>&nbsp;<span style="color: #000000">require</span><span style="color: #000000">(</span><span style="color: #df5000">'react-dom-testing'</span><span style="color: #000000">);</span></div><div>&nbsp;</div><div><span style="color: #000000">expect</span><span style="color: #000000">(</span></div><div>&nbsp;&nbsp;<span style="color: #000000">mount</span><span style="color: #000000">(</span><span style="color: #a71d5d">&lt;</span>Hello<span style="color: #a71d5d">&gt;</span>Jane&nbsp;Doe<span style="color: #a71d5d">&lt;/</span>Hello<span style="color: #a71d5d">&gt;</span><span style="color: #000000">),</span></div><div>&nbsp;&nbsp;<span style="color: #df5000">'to&nbsp;have&nbsp;text'</span><span style="color: #000000">,</span>&nbsp;<span style="color: #df5000">'Hello&nbsp;Jane&nbsp;Doe'</span></div><div><span style="color: #000000">);</span></div></div>
+<div class="code lang-javascript"><div><span style="color: #000000">expect</span><span style="color: #000000">(</span></div><div>&nbsp;&nbsp;<span style="color: #a71d5d">&lt;</span>Hello<span style="color: #a71d5d">&gt;</span>Jane&nbsp;Doe<span style="color: #a71d5d">&lt;/</span>Hello<span style="color: #a71d5d">&gt;</span><span style="color: #000000">,</span></div><div>&nbsp;&nbsp;<span style="color: #df5000">'when&nbsp;mounted'</span><span style="color: #000000">,</span></div><div>&nbsp;&nbsp;<span style="color: #df5000">'to&nbsp;have&nbsp;text'</span><span style="color: #000000">,</span>&nbsp;<span style="color: #df5000">'Hello&nbsp;Jane&nbsp;Doe'</span></div><div><span style="color: #000000">);</span></div></div><p>This is similar to the mount function in the following way:</p>
+<!-- unexpected-markdown evaluate:false -->
+<div class="code lang-javascript"><div><span style="color: #a71d5d">const</span>&nbsp;<span style="color: #000000">{</span>&nbsp;mount&nbsp;<span style="color: #000000">}</span>&nbsp;<span style="color: #a71d5d">=</span>&nbsp;<span style="color: #000000">require</span><span style="color: #000000">(</span><span style="color: #df5000">'unexpected-reaction'</span><span style="color: #000000">);</span></div></div><div class="code lang-javascript"><div><span style="color: #000000">expect</span><span style="color: #000000">(</span></div><div>&nbsp;&nbsp;<span style="color: #000000">mount</span><span style="color: #000000">(</span><span style="color: #a71d5d">&lt;</span>Hello<span style="color: #a71d5d">&gt;</span>Jane&nbsp;Doe<span style="color: #a71d5d">&lt;/</span>Hello<span style="color: #a71d5d">&gt;</span><span style="color: #000000">),</span></div><div>&nbsp;&nbsp;<span style="color: #df5000">'to&nbsp;have&nbsp;text'</span><span style="color: #000000">,</span>&nbsp;<span style="color: #df5000">'Hello&nbsp;Jane&nbsp;Doe'</span></div><div><span style="color: #000000">);</span></div></div><p>The mount method is provided by
+<a href="https://github.com/sunesimonsen/react-dom-testing/">react-dom-testing</a>
+and is exported as a convenience.</p>
+
         </div>
     </div>
 </section>
