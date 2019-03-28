@@ -25,9 +25,9 @@ $ npm install --save-dev unexpected unexpected-dom unexpected-reaction
 Then:
 
 ```js#evaluate:false
-var expect = require('unexpected');
-expect.use(require('unexpected-dom');
-expect.use(require('unexpected-reaction');
+var expect = require('unexpected').clone();
+expect.use(require('unexpected-dom'));
+expect.use(require('unexpected-reaction'));
 ```
 
 ## Usage
