@@ -14,7 +14,7 @@
     "prepare": "npm run build",
     "test": "jest && npm run test:documentation",
     "test-headless": "npm run build-tests && karma start --single-run",
-    "test:documentation": "mocha documentation",
+    "test:documentation": "mocha documentation/**/*.md",
     "generate-site": "generate-site --require ./test/bootstrap-unexpected-markdown.js",
     "update-examples": "generate-site --require ./test/bootstrap-unexpected-markdown.js --update-examples",
     "deploy-site": "deploy-site",
