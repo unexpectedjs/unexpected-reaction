@@ -17,8 +17,7 @@
     "test:documentation": "mocha documentation/**/*.md",
     "generate-site": "generate-site --require ./test/bootstrap-unexpected-markdown.js",
     "update-examples": "generate-site --require ./test/bootstrap-unexpected-markdown.js --update-examples",
-    "deploy-site": "deploy-site",
-    "ci": "npm run lint && npm test && npm run test-headless"
+    "deploy-site": "deploy-site"
   },
   "bugs": "https://github.com/unexpectedjs/unexpected-reaction",
   "repository": {
