@@ -1,7 +1,7 @@
 module.exports = [
   {
     input: "lib/index.js",
-    external: ["react-dom", "react-dom/test-utils"],
+    external: ["react", "react-dom", "react-dom/test-utils"],
     output: {
       file: "unexpected-reaction.js",
       exports: "default",
@@ -10,6 +10,7 @@ module.exports = [
       sourcemap: false,
       strict: false,
       globals: {
+        react: "React",
         "react-dom": "ReactDOM",
         "react-dom/test-utils": "ReactTestUtils"
       }
