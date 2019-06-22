@@ -1,6 +1,26 @@
 language: node_js
 
+env:
+  - TARGET=test
+
+node_js:
+  - "6"
+  - "8.7.0"
+  - "10"
+
+matrix:
+  include:
+    - name: Lint
+      node_js: "8.7.0"
+      env:
+        - TARGET=lint
+    - name: Chrome headless
+      node_js: "8.7.0"
+      env:
+        - TARGET=test-headless
+        - BROWSER=ChromeHeadless
+
 addons:
   chrome: stable
 
-script: npm run ci
+script: npm run $TARGET
