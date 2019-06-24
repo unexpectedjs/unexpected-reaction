@@ -21,6 +21,27 @@ module.exports = function(config) {
       }
     },
 
-    browsers: ["ChromeHeadless"]
+    browsers: ["ChromeHeadless", "ie11"],
+
+    browserStack: {
+      video: false,
+      project:
+        process.env.TRAVIS_BRANCH === "master" &&
+        !process.env.TRAVIS_PULL_REQUEST_BRANCH // Catch Travis "PR" builds
+          ? "unexpected-reaction"
+          : "unexpected-reaction-dev"
+    },
+
+    customLaunchers: {
+      ie11: {
+        base: "BrowserStack",
+        browser: "IE",
+        browser_version: "11",
+        os: "Windows",
+        os_version: "7"
+      }
+    },
+
+    reporters: ["dots", "BrowserStack"]
   });
 };

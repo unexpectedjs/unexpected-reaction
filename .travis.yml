@@ -14,6 +14,11 @@ matrix:
       node_js: "8.7.0"
       env:
         - TARGET=lint
+    - name: BrowserStack IE11
+      node_js: "8.7.0"
+      env:
+        - TARGET=test-browser
+        - BROWSER=ie11
     - name: Chrome headless
       node_js: "8.7.0"
       env:
