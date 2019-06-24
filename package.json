@@ -67,7 +67,7 @@
     "unexpected-sinon": "^10.11.0"
   },
   "dependencies": {
-    "react-dom-testing": "^1.7.0"
+    "react-dom-testing": "^1.8.1"
   },
   "peerDependencies": {
     "react": "^16.0.0",
