@@ -78,7 +78,13 @@
 	  return indentCache[level];
 	}
 
-	var domspace = function domspace(node, indentLevel = 0) {
+	var domspace = function domspace(node, indentLevel) {
+	  indentLevel = typeof indentLevel === 'number' ? indentLevel : 0;
+
+	  const isDocumentNode = node.nodeType === node.DOCUMENT_NODE;
+	  if (node.nodeType !== node.ELEMENT_NODE && !isDocumentNode) {
+	    return;
+	  }
 	  if (
 	    node.childNodes.length === 1 &&
 	    node.firstChild.nodeType === node.TEXT_NODE
@@ -86,7 +92,7 @@
 	    node.firstChild.nodeValue = node.firstChild.nodeValue.trim();
 	  } else {
 	    let nextIndentLevel = indentLevel;
-	    if (node.nodeType !== node.DOCUMENT_NODE && node.nodeName !== 'HTML') {
+	    if (!isDocumentNode && node.nodeName !== 'HTML') {
 	      nextIndentLevel += 2;
 	    }
 	    for (let i = 0; i < node.childNodes.length; i += 1) {
@@ -101,13 +107,15 @@
 	            .replace(/(\S)\s*/, '$1');
 	        }
 	      } else {
-	        if (node.nodeType !== node.DOCUMENT_NODE) {
+	        if (!isDocumentNode) {
 	          node.insertBefore(
-	            (node.ownerDocument || node).createTextNode('\n' + indent(nextIndentLevel)),
+	            (node.ownerDocument || node).createTextNode(
+	              '\n' + indent(nextIndentLevel)
+	            ),
 	            childNode
 	          );
 	          i += 1;
-	        } else if (i > 0) {
+	        } else if (i > 0 && !isDocumentNode) {
 	          node.insertBefore(
 	            (node.ownerDocument || node).createTextNode('\n'),
 	            childNode
@@ -117,9 +125,11 @@
 	        domspace(childNode, nextIndentLevel);
 	      }
 	    }
-	    node.appendChild(
-	      (node.ownerDocument || node).createTextNode('\n' + indent(indentLevel))
-	    );
+	    if (!isDocumentNode) {
+	      node.appendChild(
+	        (node.ownerDocument || node).createTextNode('\n' + indent(indentLevel))
+	      );
+	    }
 	  }
 	  return node;
 	};
