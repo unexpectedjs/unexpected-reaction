@@ -1,33 +1,20 @@
 global.unexpected = require("unexpected").clone();
 global.unexpected.output.preferredWidth = 80;
 global.unexpected.use(require("unexpected-dom"));
+global.unexpected.use(require("unexpected-snapshot"));
 global.unexpectedReact = require("../src/");
 global.unexpected.use(global.unexpectedReact);
 
-global.unexpected
-  .addAssertion("<any> to match snapshot", (expect, subject) => {
-    global.expect(subject).toMatchSnapshot();
-  })
-  .addAssertion(
-    "<function> with error matching snapshot",
-    (expect, subject) => {
-      return expect
-        .promise(() => subject())
-        .then(
-          () => expect.fail(),
-          error => {
-            if (error && error._isUnexpected) {
-              expect(
-                error.getErrorMessage("text").toString(),
-                "to match snapshot"
-              );
-            } else {
-              expect(error.message, "to match snapshot");
-            }
-          }
-        );
-    }
-  );
+global.unexpected.addAssertion(
+  "<function> to error satisfying <assertion>",
+  (expect, cb) =>
+    expect(cb, "to error").then(err => {
+      expect.errorMode = "nested";
+      return expect.shift(
+        err.isUnexpected ? err.getErrorMessage("text").toString() : err.message
+      );
+    })
+);
 
 global.unexpected.output.preferredWidth = 80;
 
