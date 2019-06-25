@@ -3,7 +3,16 @@ const { React, Component, PropTypes, expect, mount, simulate } =
     ? window.testGlobals
     : require("./common/node");
 
-it.onlyNode = typeof require === "undefined" ? it.skip : it;
+expect.addAssertion(
+  "<function> to error satisfying <assertion>",
+  (expect, cb) =>
+    expect(cb, "to error").then(err => {
+      expect.errorMode = "nested";
+      return expect.shift(
+        err.isUnexpected ? err.getErrorMessage("text").toString() : err.message
+      );
+    })
+);
 
 class Hello extends Component {
   render() {
@@ -148,7 +157,7 @@ describe("unexpected-reaction", () => {
         );
       });
 
-      it.onlyNode("fails with a diff", () => {
+      it("fails with a diff", () => {
         expect(
           () => {
             expect(
@@ -224,7 +233,7 @@ describe("unexpected-reaction", () => {
         );
       });
 
-      it.onlyNode("fails with a diff", () => {
+      it("fails with a diff", () => {
         expect(
           () => {
             expect(
@@ -355,7 +364,7 @@ describe("unexpected-reaction", () => {
         });
       });
 
-      it.onlyNode("fails if it cant find the event target", () => {
+      it("fails if it cant find the event target", () => {
         expect(
           () => {
             expect(
@@ -377,7 +386,7 @@ describe("unexpected-reaction", () => {
         );
       });
 
-      it.onlyNode("fails if the event type is not known", () => {
+      it("fails if the event type is not known", () => {
         expect(
           () => {
             expect(

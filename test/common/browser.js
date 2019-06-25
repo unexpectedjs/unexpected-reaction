@@ -5,6 +5,7 @@ window.testGlobals = {
   expect: window.weknowhow.expect
     .clone()
     .use(window.unexpected.dom)
+    .use(window.unexpectedSnapshot)
     .use(window.unexpectedReaction),
   mount: window.unexpectedReaction.mount,
   unmount: window.unexpectedReaction.unmount,
