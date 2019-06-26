@@ -3,7 +3,16 @@ const { React, Component, PropTypes, expect, mount, simulate } =
     ? window.testGlobals
     : require("./common/node");
 
-it.onlyNode = typeof require === "undefined" ? it.skip : it;
+expect.addAssertion(
+  "<function> to error satisfying <assertion>",
+  (expect, cb) =>
+    expect(cb, "to error").then(err => {
+      expect.errorMode = "nested";
+      return expect.shift(
+        err.isUnexpected ? err.getErrorMessage("text").toString() : err.message
+      );
+    })
+);
 
 class Hello extends Component {
   render() {
@@ -148,18 +157,40 @@ describe("unexpected-reaction", () => {
         );
       });
 
-      it.onlyNode("fails with a diff", () => {
-        expect(() => {
-          expect(
-            <Hello>Jane Doe</Hello>,
-            "when mounted",
-            "to satisfy",
+      it("fails with a diff", () => {
+        expect(
+          () => {
+            expect(
+              <Hello>Jane Doe</Hello>,
+              "when mounted",
+              "to satisfy",
+              <div>
+                <div className="label">Hello:</div>
+                <div>Jane Doe!</div>
+              </div>
+            );
+          },
+          "to error satisfying",
+          "to equal snapshot",
+          expect.unindent`
+            expected
             <div>
-              <div className="label">Hello:</div>
-              <div>Jane Doe!</div>
+              <div class="label">Hello:</div>
+              <div class="value" data-test="value">Jane Doe</div>
             </div>
-          );
-        }, "with error matching snapshot");
+            to satisfy <div><div class="label">Hello:</div><div>Jane Doe!</div></div>
+
+            <div>
+              <div class="label">Hello:</div>
+              <div class="value" data-test="value">
+                Jane Doe // should equal 'Jane Doe!'
+                         //
+                         // -Jane Doe
+                         // +Jane Doe!
+              </div>
+            </div>
+          `
+        );
       });
 
       describe("on conditional tree", () => {
@@ -202,20 +233,40 @@ describe("unexpected-reaction", () => {
         );
       });
 
-      it.onlyNode("fails with a diff", () => {
-        expect(() => {
-          expect(
-            <Hello testId="hello">Jane Doe</Hello>,
-            "when mounted",
-            "to exhaustively satisfy",
-            <div>
-              <div className="label">Hello:</div>
-              <div className="value" data-test="value">
-                Jane Doe
+      it("fails with a diff", () => {
+        expect(
+          () => {
+            expect(
+              <Hello testId="hello">Jane Doe</Hello>,
+              "when mounted",
+              "to exhaustively satisfy",
+              <div>
+                <div className="label">Hello:</div>
+                <div className="value" data-test="value">
+                  Jane Doe
+                </div>
               </div>
+            );
+          },
+          "to error satisfying",
+          "to equal snapshot",
+          expect.unindent`
+            expected
+            <div data-test-id="hello">
+              <div class="label">Hello:</div>
+              <div class="value" data-test="value">Jane Doe</div>
             </div>
-          );
-        }, "with error matching snapshot");
+            to exhaustively satisfy
+            <div>
+              <div class="label">Hello:</div>
+              <div class="value" data-test="value">Jane Doe</div>
+            </div>
+
+            <div
+              data-test-id="hello" // should be removed
+            ><div class="label">Hello:</div><div class="value" data-test="value">Jane Doe</div></div>
+          `
+        );
       });
     });
 
@@ -313,30 +364,49 @@ describe("unexpected-reaction", () => {
         });
       });
 
-      it.onlyNode("fails if it cant find the event target", () => {
-        expect(() => {
-          expect(
-            <Toggle />,
-            "when mounted",
-            "with event",
-            { type: "click", target: ".foobar" },
-            "to have text",
-            "TRUE"
-          );
-        }, "with error matching snapshot");
+      it("fails if it cant find the event target", () => {
+        expect(
+          () => {
+            expect(
+              <Toggle />,
+              "when mounted",
+              "with event",
+              { type: "click", target: ".foobar" },
+              "to have text",
+              "TRUE"
+            );
+          },
+          "to error satisfying",
+          "to equal snapshot",
+          expect.unindent`
+            expected <div><span style="color: red">FALSE</span></div>
+            with event { type: 'click', target: '.foobar' } to have text 'TRUE'
+              expected DOMElement to contain elements matching '.foobar'
+          `
+        );
       });
 
-      it.onlyNode("fails if the event type is not known", () => {
-        expect(() => {
-          expect(
-            <Toggle />,
-            "when mounted",
-            "with event",
-            "press",
-            "to have text",
-            "TRUE"
-          );
-        }, "with error matching snapshot");
+      it("fails if the event type is not known", () => {
+        expect(
+          () => {
+            expect(
+              <Toggle />,
+              "when mounted",
+              "with event",
+              "press",
+              "to have text",
+              "TRUE"
+            );
+          },
+          "to error satisfying",
+          "to equal snapshot",
+          expect.unindent`
+            expected <div><span style="color: red">FALSE</span></div>
+            with event 'press' to have text 'TRUE'
+              Event 'press' is not supported by Simulate
+              See https://reactjs.org/docs/events.html#supported-events
+          `
+        );
       });
     });
   });

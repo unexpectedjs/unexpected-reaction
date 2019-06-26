@@ -5,6 +5,7 @@ module.exports = function(config) {
     files: [
       "./node_modules/unexpected/unexpected.js",
       "./node_modules/unexpected-dom/unexpected-dom.js",
+      "./node_modules/unexpected-snapshot/unexpected-snapshot-browser.js",
       "./node_modules/react/umd/react.development.js",
       "./node_modules/react-dom/umd/react-dom.development.js",
       "./node_modules/react-dom/umd/react-dom-test-utils.development.js",
