@@ -114,6 +114,12 @@ class MyInput extends Component {
   }
 }
 
+const FancyButton = React.forwardRef((props, ref) => (
+  <button ref={ref} className="FancyButton">
+    {props.children}
+  </button>
+));
+
 describe("unexpected-reaction", () => {
   describe("ReactElement", () => {
     describe("when mounted", () => {
@@ -215,6 +221,26 @@ describe("unexpected-reaction", () => {
             </div>
           );
         });
+      });
+
+      it("supports asserting on forwarding refs", () => {
+        const ref = React.createRef();
+
+        expect(
+          <FancyButton ref={ref}>Click me!</FancyButton>,
+          "to satisfy",
+          <button className="FancyButton">Click me!</button>
+        );
+      });
+
+      it("supports asserting on forwarding refs against forwarding refs", () => {
+        const ref = React.createRef();
+
+        expect(
+          <FancyButton ref={ref}>Click me!</FancyButton>,
+          "to satisfy",
+          <FancyButton>Click me!</FancyButton>
+        );
       });
     });
 

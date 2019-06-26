@@ -1,3 +1,4 @@
+const React = require("react");
 const { Ignore, mount, simulate, unmount } = require("react-dom-testing");
 
 const unexpectedReaction = {
@@ -9,14 +10,7 @@ const unexpectedReaction = {
       unwrap: value => mount(value),
       prefix: output => output,
       suffix: output => output,
-      identify: value =>
-        typeof value === "object" &&
-        value !== null &&
-        (typeof value.type === "function" || typeof value.type === "string") &&
-        typeof value.hasOwnProperty === "function" &&
-        value.hasOwnProperty("props") &&
-        value.hasOwnProperty("ref") &&
-        value.hasOwnProperty("key")
+      identify: value => React.isValidElement(value)
     });
 
     expect.addAssertion(
