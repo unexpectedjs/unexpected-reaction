@@ -15,7 +15,7 @@
     "test": "npm run test-node && npm run test-node-jest && npm run test-docs",
     "test-browser": "npm run build-tests && karma start --single-run --browsers ${BROWSER:-ChromeHeadless}",
     "test-docs": "mocha documentation/**/*.md",
-    "test-node": "mocha -r mocha-dominate -r babel-register --opts ./test/mocha.empty.opts",
+    "test-node": "mocha",
     "test-node-jest": "jest",
     "test-headless": "npm run test-browser",
     "generate-site": "generate-site --require ./test/bootstrap-unexpected-markdown.js",
