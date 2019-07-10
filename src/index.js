@@ -1,5 +1,5 @@
 const React = require("react");
-const { Ignore, mount, simulate, unmount } = require("react-dom-testing");
+const { act, Ignore, mount, simulate, unmount } = require("react-dom-testing");
 
 const unexpectedReaction = {
   name: "unexpected-reaction",
@@ -60,6 +60,7 @@ const unexpectedReaction = {
   }
 };
 
+unexpectedReaction.act = act;
 unexpectedReaction.Ignore = Ignore;
 unexpectedReaction.mount = mount;
 unexpectedReaction.unmount = unmount;
