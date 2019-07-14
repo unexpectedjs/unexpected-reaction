@@ -12,10 +12,11 @@
     "build-tests": "babel --out-dir build --quiet test/index.spec.js",
     "lint": "eslint .",
     "prepare": "npm run build",
-    "test": "jest && npm run test:documentation",
+    "test": "npm run test-node && npm run test-docs",
     "test-browser": "npm run build-tests && karma start --single-run --browsers ${BROWSER:-ChromeHeadless}",
+    "test-docs": "mocha documentation/**/*.md",
+    "test-node": "jest",
     "test-headless": "npm run test-browser",
-    "test:documentation": "mocha documentation/**/*.md",
     "generate-site": "generate-site --require ./test/bootstrap-unexpected-markdown.js",
     "update-examples": "generate-site --require ./test/bootstrap-unexpected-markdown.js --update-examples",
     "deploy-site": "deploy-site"
