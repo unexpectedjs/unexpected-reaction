@@ -120,6 +120,10 @@ const FancyButton = React.forwardRef((props, ref) => (
   </button>
 ));
 
+FancyButton.propTypes = {
+  children: PropTypes.node
+};
+
 describe("unexpected-reaction", () => {
   describe("ReactElement", () => {
     describe("when mounted", () => {
