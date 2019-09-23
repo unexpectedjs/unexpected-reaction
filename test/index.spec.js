@@ -436,4 +436,101 @@ describe("unexpected-reaction", () => {
       });
     });
   });
+
+  describe("simulate", () => {
+    describe("when given a string", () => {
+      it("invokes the given event type on the subject", () => {
+        const component = mount(<Toggle />);
+
+        simulate(component, "click");
+
+        expect(component, "to have text", "TRUE");
+      });
+    });
+
+    describe("when given an object", () => {
+      const component = mount(<MyInput />);
+
+      simulate(component, {
+        type: "change",
+        value: "Jane Doe",
+        target: "input"
+      });
+
+      expect(component, "queried for first", "input", "to have attribute", {
+        value: "Jane Doe"
+      });
+    });
+
+    describe("when given an array", () => {
+      it("applies all of the events", () => {
+        const component = mount(<MyInput />);
+
+        simulate(component, [
+          {
+            type: "change",
+            value: "Jane Doe",
+            target: "input"
+          },
+          {
+            type: "keyDown",
+            target: "input",
+            data: {
+              keyCode: 13
+            }
+          }
+        ]);
+
+        expect(
+          component,
+          "queried for first",
+          "[data-test=name]",
+          "to have text",
+          "Jane Doe"
+        );
+      });
+
+      it("accepts string and object events", () => {
+        const component = mount(<Toggle />);
+
+        simulate(component, ["click", { type: "click" }]);
+
+        expect(component, "to have text", "FALSE");
+      });
+    });
+
+    it("fails if it cant find the event target", () => {
+      const component = mount(<Toggle />);
+
+      expect(
+        () => {
+          simulate(component, { type: "click", target: ".foobar" });
+        },
+        "to error satisfying",
+        "to equal snapshot",
+        expect.unindent`
+          simulate(element, { type: 'click', target: '.foobar' })
+            expected <div><span style="color: red">FALSE</span></div>
+            to contain elements matching '.foobar'
+          `
+      );
+    });
+
+    it("fails if the event type is not known", () => {
+      const component = mount(<Toggle />);
+
+      expect(
+        () => {
+          simulate(component, "press");
+        },
+        "to error satisfying",
+        "to equal snapshot",
+        expect.unindent`
+            simulate(element, 'press')
+              Event 'press' is not supported by Simulate
+              See https://reactjs.org/docs/events.html#supported-events
+          `
+      );
+    });
+  });
 });

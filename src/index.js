@@ -1,5 +1,58 @@
 const React = require("react");
-const { act, Ignore, mount, simulate, unmount } = require("react-dom-testing");
+
+const {
+  Ignore,
+  act,
+  mount,
+  simulate: originalSimulate,
+  unmount
+} = require("react-dom-testing");
+
+const expect = require("unexpected")
+  .clone()
+  .use(require("unexpected-dom"))
+  .use(require("magicpen-prism"));
+
+function simulateWithExpect(expect, rootElement, events) {
+  [].concat(events).forEach(event => {
+    if (typeof event.target === "string") {
+      expect(rootElement, "to contain elements matching", event.target);
+    }
+
+    try {
+      originalSimulate(rootElement, event);
+    } catch (err) {
+      expect.fail(err.message);
+    }
+  });
+}
+
+function simulate(rootElement, events) {
+  if (arguments.length !== 2) {
+    expect.fail("simulate takes exactly two arguments: {0}", arguments);
+  }
+
+  expect.withError(
+    () => {
+      simulateWithExpect(expect, rootElement, events);
+    },
+    err => {
+      expect.fail(output => {
+        output
+          .jsFunctionName("simulate")
+          .text("(element, ")
+          .appendInspected(events)
+          .text(")")
+          .nl()
+          .indentLines()
+          .i()
+          .block(output => {
+            output.appendErrorMessage(err);
+          });
+      });
+    }
+  );
+}
 
 const unexpectedReaction = {
   name: "unexpected-reaction",
@@ -39,20 +92,10 @@ const unexpectedReaction = {
 
     expect.addAssertion(
       "<DOMElement> with (event|events) <array|object|string> <assertion?>",
-      (expect, subject, value) => {
+      (expect, subject, events) => {
         expect.errorMode = "nested";
 
-        [].concat(value).forEach(event => {
-          if (typeof event.target === "string") {
-            expect(subject, "to contain elements matching", event.target);
-          }
-
-          try {
-            simulate(subject, event);
-          } catch (err) {
-            expect.fail(err.message);
-          }
-        });
+        simulateWithExpect(expect, subject, events);
 
         return expect.shift(subject);
       }
