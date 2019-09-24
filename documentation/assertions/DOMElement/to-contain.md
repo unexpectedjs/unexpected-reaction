@@ -10,10 +10,9 @@ const React = require("react");
 const Hello = ({ children }) => (
   <div>
     <span className="label">Hello</span>
-    &nbsp;
     <span className="fancy-label name">{children}</span>
   </div>
-); 
+);
 ```
 
 ```js
@@ -58,7 +57,6 @@ expect(
 expected
 <div>
   <span class="label">Hello</span>
-  
   <span class="fancy-label name">Jane Doe</span>
 </div>
 to contain <span class="fullname">Jane Doe</span>

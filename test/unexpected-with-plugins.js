@@ -1,3 +1,5 @@
+process.stdout.columns = 80;
+
 global.unexpected = require("unexpected").clone();
 global.unexpected.output.preferredWidth = 80;
 global.unexpected.use(require("unexpected-dom"));
