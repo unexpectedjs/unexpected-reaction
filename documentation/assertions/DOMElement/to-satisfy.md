@@ -10,7 +10,6 @@ const React = require("react");
 const Hello = ({ children }) => (
   <div>
     <span className="label">Hello</span>
-    &nbsp;
     <span className="name">{children}</span>
   </div>
 );
@@ -23,7 +22,6 @@ expect(
   'to satisfy',
   <div>
     <span className="label">Hello</span>
-    &nbsp;
     <span className="name">Jane Doe</span>
   </div>
 )
@@ -45,7 +43,6 @@ expect(
   'to satisfy',
   <div>
     <Ignore/>
-    &nbsp;
     <span>Jane Doe</span>
   </div>
 )
@@ -60,7 +57,6 @@ expect(
   'to satisfy',
   <div>
     <Ignore/>
-    &nbsp;
     <span className="fullname">Jane Doe</span>
   </div>
 )
@@ -70,14 +66,12 @@ expect(
 expected
 <div>
   <span class="label">Hello</span>
-  
   <span class="name">Jane Doe</span>
 </div>
 to satisfy <div><!-- ignore --><span class="fullname">Jane Doe</span></div>
 
 <div>
   <span class="label">Hello</span>
-
   <span
     class="name" // expected [ 'name' ] to contain 'fullname'
   >Jane Doe</span>
