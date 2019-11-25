@@ -193,7 +193,7 @@ describe("unexpected-reaction", () => {
             <div>
               <div class="label">Hello:</div>
               <div class="value" data-test="value">
-                Jane Doe // should equal 'Jane Doe!'
+                Jane Doe // should equal Jane Doe!
                          //
                          // -Jane Doe
                          // +Jane Doe!
