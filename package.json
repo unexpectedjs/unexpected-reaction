@@ -71,7 +71,7 @@
     "unexpected-dom": "^4.16.0",
     "unexpected-markdown": "^4.0.0",
     "unexpected-sinon": "^10.11.0",
-    "unexpected-snapshot": "^0.6.0"
+    "unexpected-snapshot": "^0.7.0"
   },
   "dependencies": {
     "react-dom-testing": "^1.9.0"
