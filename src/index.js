@@ -8,10 +8,12 @@ const {
   unmount
 } = require("react-dom-testing");
 
+const unexpectedDom = require("unexpected-dom");
+const magicpenPrism = require("magicpen-prism");
 const expect = require("unexpected")
   .clone()
-  .use(require("unexpected-dom"))
-  .use(require("magicpen-prism"));
+  .use(unexpectedDom)
+  .use(magicpenPrism);
 
 function simulateWithExpect(expect, rootElement, events) {
   [].concat(events).forEach(event => {

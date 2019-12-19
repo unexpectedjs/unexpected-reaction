@@ -1,7 +1,14 @@
 module.exports = [
   {
     input: "lib/index.js",
-    external: ["react", "react-dom", "react-dom/test-utils"],
+    external: [
+      "prismjs",
+      "react",
+      "react-dom",
+      "react-dom/test-utils",
+      "unexpected",
+      "unexpected-dom"
+    ],
     output: {
       file: "unexpected-reaction.js",
       exports: "default",
@@ -10,9 +17,12 @@ module.exports = [
       sourcemap: false,
       strict: false,
       globals: {
+        prismjs: "Prism",
         react: "React",
         "react-dom": "ReactDOM",
-        "react-dom/test-utils": "ReactTestUtils"
+        "react-dom/test-utils": "ReactTestUtils",
+        unexpected: "weknowhow.expect",
+        "unexpected-dom": "unexpected.dom"
       }
     },
     plugins: [
