@@ -10,7 +10,7 @@ module.exports = function(config) {
       "./node_modules/react-dom/umd/react-dom.development.js",
       "./node_modules/react-dom/umd/react-dom-test-utils.development.js",
       "./node_modules/prop-types/prop-types.js",
-      "./node_modules/prismjs/prism.js",
+      "./node_modules/magicpen-prism/magicPenPrism.min.js",
       "./unexpected-reaction.js",
       "./test/common/browser.js",
       "./build/test/index.spec.js"

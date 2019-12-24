@@ -13,7 +13,7 @@
     "lint": "eslint .",
     "prepare": "npm run build",
     "test": "npm run test-node && npm run test-docs",
-    "test-browser": "npm run build-tests && karma start --single-run --browsers ${BROWSER:-ChromeHeadless}",
+    "test-browser": "npm run build && npm run build-tests && karma start --single-run --browsers ${BROWSER:-ChromeHeadless}",
     "test-docs": "mocha documentation/**/*.md",
     "test-node": "mocha",
     "test-jest": "jest",

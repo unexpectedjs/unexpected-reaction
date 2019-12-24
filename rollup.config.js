@@ -2,7 +2,7 @@ module.exports = [
   {
     input: "lib/index.js",
     external: [
-      "prismjs",
+      "magicpen-prism",
       "react",
       "react-dom",
       "react-dom/test-utils",
@@ -17,7 +17,7 @@ module.exports = [
       sourcemap: false,
       strict: false,
       globals: {
-        prismjs: "Prism",
+        "magicpen-prism": "magicPenPrism",
         react: "React",
         "react-dom": "ReactDOM",
         "react-dom/test-utils": "ReactTestUtils",
