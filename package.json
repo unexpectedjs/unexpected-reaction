@@ -70,7 +70,7 @@
     "unexpected": "^11.12.1",
     "unexpected-documentation-site-generator": "^6.0.0",
     "unexpected-dom": "^4.17.0",
-    "unexpected-markdown": "^4.0.0",
+    "unexpected-markdown": "^5.0.1",
     "unexpected-sinon": "^10.11.0",
     "unexpected-snapshot": "^1.0.0"
   },
