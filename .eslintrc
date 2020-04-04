@@ -1,6 +1,9 @@
 {
-  "extends": ["pretty-standard"],
-  "plugins": ["import"],
+  "extends": ["standard", "prettier", "prettier/standard"],
+  "plugins": ["import", "mocha"],
+  "env": {
+    "mocha": true
+  },
   "rules": {
     "import/no-extraneous-dependencies": [
       "error",
@@ -15,6 +18,9 @@
         "optionalDependencies": false,
         "peerDependencies": true
       }
-    ]
+    ],
+    "mocha/no-exclusive-tests": "error",
+    "mocha/no-nested-tests": "error",
+    "mocha/no-identical-title": "error"
   }
-};
+}
