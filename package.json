@@ -10,7 +10,7 @@
   "scripts": {
     "build": "babel --out-dir lib --quiet src && rollup -c",
     "build-tests": "babel --out-dir build --quiet test/index.spec.js",
-    "lint": "eslint .",
+    "lint": "eslint . && prettier --check '**/*.{js,md}'",
     "prepare": "npm run build",
     "test": "npm run test-node && npm run test-docs",
     "test-browser": "npm run build && npm run build-tests && karma start --single-run --browsers ${BROWSER:-ChromeHeadless}",
