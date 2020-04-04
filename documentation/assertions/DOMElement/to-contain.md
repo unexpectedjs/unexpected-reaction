@@ -18,10 +18,10 @@ const Hello = ({ children }) => (
 ```js
 expect(
   <Hello>Jane Doe</Hello>,
-  'when mounted',
-  'to contain',
+  "when mounted",
+  "to contain",
   <span className="fancy-label name">Jane Doe</span>
-)
+);
 ```
 
 The assertion allows you to leave out attributes you don't care about, or ignore
@@ -30,16 +30,18 @@ complete sub-trees:
 <!-- unexpected-markdown evaluate:false -->
 
 ```js
-const { Ignore } = require('unexpected-reaction');
+const { Ignore } = require("unexpected-reaction");
 ```
 
 ```js
 expect(
   <Hello>Jane Doe</Hello>,
-  'when mounted',
-  'to contain',
-  <span className="name"><Ignore /></span>
-)
+  "when mounted",
+  "to contain",
+  <span className="name">
+    <Ignore />
+  </span>
+);
 ```
 
 In case of a failure, you will get a nice diff:
@@ -47,10 +49,10 @@ In case of a failure, you will get a nice diff:
 ```js
 expect(
   <Hello>Jane Doe</Hello>,
-  'when mounted',
-  'to contain',
+  "when mounted",
+  "to contain",
   <span className="fullname">Jane Doe</span>
-)
+);
 ```
 
 ```output
@@ -72,8 +74,8 @@ given element:
 ```js
 expect(
   <Hello>Jane Doe</Hello>,
-  'when mounted',
-  'not to contain',
+  "when mounted",
+  "not to contain",
   <span className="fullname">Jane Doe</span>
 );
 ```

@@ -25,9 +25,9 @@ $ npm install --save-dev unexpected unexpected-dom unexpected-reaction
 Then:
 
 ```js#evaluate:false
-var expect = require('unexpected').clone();
-expect.use(require('unexpected-dom'));
-expect.use(require('unexpected-reaction'));
+var expect = require("unexpected").clone();
+expect.use(require("unexpected-dom"));
+expect.use(require("unexpected-reaction"));
 ```
 
 ## Usage
@@ -41,7 +41,7 @@ const Hello = ({ children }) => (
     &nbsp;
     <span className="name">{children}</span>
   </div>
-); 
+);
 ```
 
 Use it to mount a component into the DOM and assert on the rendered output:
@@ -49,28 +49,30 @@ Use it to mount a component into the DOM and assert on the rendered output:
 ```js
 expect(
   <Hello>Jane Doe</Hello>,
-  'when mounted',
-  'queried for first', '.name',
-  'to have text', 'Jane Doe'
-)
+  "when mounted",
+  "queried for first",
+  ".name",
+  "to have text",
+  "Jane Doe"
+);
 ```
 
 You can also satisfy a mounted component against a JSX structure. This will
 mount the JSX structure into the DOM and compare the mounted component under test with
-the DOM rendered by the given JSX structure. The comparison will use 
+the DOM rendered by the given JSX structure. The comparison will use
 `to satisfy` from [unexpected-dom](https://unexpected.js.org/unexpected-dom/assertions/DOMElement/to-satisfy/).
 
 ```js
 expect(
   <Hello>Jane Doe</Hello>,
-  'when mounted',
-  'to satisfy',
+  "when mounted",
+  "to satisfy",
   <div>
     <span className="label">Hello</span>
     &nbsp;
     <span className="name">Jane Doe</span>
   </div>
-)
+);
 ```
 
 This is similar to programatically mounting the component and
@@ -84,7 +86,7 @@ const { mount } = require("unexpected-reaction");
 ```js
 expect(
   mount(<Hello>Jane Doe</Hello>),
-  'to satisfy',
+  "to satisfy",
   mount(
     <div>
       <span className="label">Hello</span>
@@ -95,7 +97,7 @@ expect(
 );
 ```
 
-This library exposes all of the methods from 
+This library exposes all of the methods from
 [react-dom-testing](https://github.com/sunesimonsen/react-dom-testing/)
 for convenience.
 

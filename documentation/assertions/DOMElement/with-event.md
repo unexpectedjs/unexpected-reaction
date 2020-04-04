@@ -40,12 +40,13 @@ let onClick = sinon.spy();
 
 expect(
   <button onClick={onClick}>Click me!</button>,
-  'when mounted',
-  'with event', 'click'
+  "when mounted",
+  "with event",
+  "click"
 );
 
-expect(onClick, 'to have calls satisfying', () => {
-  onClick(expect.it('to satisfy', {type: 'click'}))
+expect(onClick, "to have calls satisfying", () => {
+  onClick(expect.it("to satisfy", { type: "click" }));
 });
 ```
 
@@ -59,14 +60,14 @@ class SignUpForm extends React.Component {
     this.state = {
       username: "",
       password: "",
-      showValidation: false
+      showValidation: false,
     };
 
-    this.onUsernameChange = e => {
+    this.onUsernameChange = (e) => {
       this.setState({ username: e.target.value, showValidation: false });
     };
 
-    this.onPasswordChange = e => {
+    this.onPasswordChange = (e) => {
       this.setState({ password: e.target.value, showValidation: false });
     };
 
@@ -82,7 +83,7 @@ class SignUpForm extends React.Component {
 
   render() {
     const { password, showValidation, username } = this.state;
-    
+
     return (
       <form data-test-id="login">
         <fieldset>
@@ -92,10 +93,9 @@ class SignUpForm extends React.Component {
             onChange={this.onUsernameChange}
             value={username}
           />
-          {showValidation &&
-            !username && (
-              <span className="validation">Username is required.</span>
-            )}
+          {showValidation && !username && (
+            <span className="validation">Username is required.</span>
+          )}
         </fieldset>
         <fieldset>
           <label htmlFor="password">Password:</label>
@@ -105,12 +105,11 @@ class SignUpForm extends React.Component {
             onChange={this.onPasswordChange}
             value={password}
           />
-          {showValidation &&
-            password.length < 8 && (
-              <span className="validation">
-                Password must be at least 8 characters.
-              </span>
-            )}
+          {showValidation && password.length < 8 && (
+            <span className="validation">
+              Password must be at least 8 characters.
+            </span>
+          )}
         </fieldset>
         <button onClick={this.onSubmit}>Sign up</button>
       </form>
@@ -134,29 +133,25 @@ values.
 ```js
 let onSubmit = sinon.spy();
 
-expect(
-  <SignUpForm onSubmit={onSubmit} />,
-  "when mounted",
-  "with events", [
-    {
-      type: "change",
-      target: "[name=username]",
-      value: "Sune Simonsen"
-    },
-    {
-      type: "change",
-      target: "[name=password]",
-      value: "Secret..."
-    },
-    {
-      type: "click",
-      target: "button"
-    }
-  ]
-);
+expect(<SignUpForm onSubmit={onSubmit} />, "when mounted", "with events", [
+  {
+    type: "change",
+    target: "[name=username]",
+    value: "Sune Simonsen",
+  },
+  {
+    type: "change",
+    target: "[name=password]",
+    value: "Secret...",
+  },
+  {
+    type: "click",
+    target: "button",
+  },
+]);
 
 expect(onSubmit, "to have calls satisfying", () => {
-  onSubmit({ username: 'Sune Simonsen', password: 'Secret...' });
+  onSubmit({ username: "Sune Simonsen", password: "Secret..." });
 });
 ```
 
@@ -167,26 +162,29 @@ from [react-dom-testing](https://github.com/sunesimonsen/react-dom-testing)
 instead. This function is exported by unexpected-reaction as a convenience:
 
 ```js#evaluate:false
-const { simulate } = require('unexpected-reaction');
+const { simulate } = require("unexpected-reaction");
 ```
 
 Let's see that we get a validations messages if we submit the form without
 entering any data:
 
 ```js
-onSubmit = sinon.spy()
+onSubmit = sinon.spy();
 
 expect(
   <SignUpForm onSubmit={onSubmit} />,
   "when mounted",
-  "with event", {
+  "with event",
+  {
     type: "click",
-    target: "button"
+    target: "button",
   },
-  'queried for', '.validation',
-  'to satisfy', [
+  "queried for",
+  ".validation",
+  "to satisfy",
+  [
     <span>Username is required.</span>,
-    <span>Password must be at least 8 characters.</span>
+    <span>Password must be at least 8 characters.</span>,
   ]
 );
 

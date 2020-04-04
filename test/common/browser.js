@@ -11,5 +11,5 @@ window.testGlobals = {
   mount: window.unexpectedReaction.mount,
   unmount: window.unexpectedReaction.unmount,
   Ignore: window.unexpectedReaction.Ignore,
-  simulate: window.unexpectedReaction.simulate
+  simulate: window.unexpectedReaction.simulate,
 };
