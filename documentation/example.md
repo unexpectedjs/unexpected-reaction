@@ -53,7 +53,7 @@ Now let's create a temperature input, that can accept a temperature in a given s
 ```js
 const scaleNames = {
   c: "Celsius",
-  f: "Fahrenheit"
+  f: "Fahrenheit",
 };
 
 class TemperatureInput extends React.Component {
@@ -125,7 +125,7 @@ const temperatureInput = mount(
 simulate(temperatureInput, {
   type: "change",
   target: "input",
-  value: "75"
+  value: "75",
 });
 
 expect(onChangeSpy, "to have calls satisfying", () => {
@@ -136,8 +136,8 @@ expect(onChangeSpy, "to have calls satisfying", () => {
 Now we have all the parts we need to implement our temperature converter:
 
 ```js
-const toCelsius = fahrenheit => (fahrenheit - 32) * 5 / 9;
-const toFahrenheit = celsius => celsius * 9 / 5 + 32;
+const toCelsius = (fahrenheit) => ((fahrenheit - 32) * 5) / 9;
+const toFahrenheit = (celsius) => (celsius * 9) / 5 + 32;
 
 function tryConvert(temperature, convert) {
   const input = parseFloat(temperature);
@@ -205,7 +205,7 @@ const temperatureCalculator = mount(<TemperaturCalculator />);
 simulate(temperatureCalculator, {
   type: "change",
   target: "[data-test-id=celsius-input]",
-  value: "33"
+  value: "33",
 });
 
 expect(
@@ -214,7 +214,7 @@ expect(
   "[data-test-id=fahrenheit-input]",
   "to have attributes",
   {
-    value: "91.4"
+    value: "91.4",
   }
 ).and(
   "queried for first",
@@ -231,7 +231,7 @@ opposite direction:
 simulate(temperatureCalculator, {
   type: "change",
   target: "[data-test-id=fahrenheit-input]",
-  value: "220"
+  value: "220",
 });
 
 expect(
@@ -240,7 +240,7 @@ expect(
   "[data-test-id=celsius-input]",
   "to have attributes",
   {
-    value: "104.444"
+    value: "104.444",
   }
 ).and(
   "queried for first",

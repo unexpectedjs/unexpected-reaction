@@ -11,7 +11,7 @@ const Hello = ({ children }) => (
     &nbsp;
     <span className="name">{children}</span>
   </div>
-); 
+);
 ```
 
 Now we can mount it using the assertion and assert that I has the correct text using an [unexpected-dom assertion](https://unexpected.js.org/unexpected-dom/assertions/DOMElement/to-have-text/):
@@ -19,8 +19,9 @@ Now we can mount it using the assertion and assert that I has the correct text u
 ```js
 expect(
   <Hello>Jane Doe</Hello>,
-  'when mounted',
-  'to have text', 'Hello Jane Doe'
+  "when mounted",
+  "to have text",
+  "Hello Jane Doe"
 );
 ```
 
@@ -29,14 +30,11 @@ This is similar to the mount function in the following way:
 <!-- unexpected-markdown evaluate:false -->
 
 ```js
-const { mount } = require('unexpected-reaction');
+const { mount } = require("unexpected-reaction");
 ```
 
 ```js
-expect(
-  mount(<Hello>Jane Doe</Hello>),
-  'to have text', 'Hello Jane Doe'
-);
+expect(mount(<Hello>Jane Doe</Hello>), "to have text", "Hello Jane Doe");
 ```
 
 The mount method is provided by

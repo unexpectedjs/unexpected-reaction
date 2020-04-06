@@ -5,7 +5,7 @@ const {
   act,
   mount,
   simulate: originalSimulate,
-  unmount
+  unmount,
 } = require("react-dom-testing");
 
 const unexpectedDom = require("unexpected-dom");
@@ -16,7 +16,7 @@ const expect = require("unexpected")
   .use(magicpenPrism);
 
 function simulateWithExpect(expect, rootElement, events) {
-  [].concat(events).forEach(event => {
+  [].concat(events).forEach((event) => {
     if (typeof event.target === "string") {
       expect(rootElement, "to contain elements matching", event.target);
     }
@@ -38,8 +38,8 @@ function simulate(rootElement, events) {
     () => {
       simulateWithExpect(expect, rootElement, events);
     },
-    err => {
-      expect.fail(output => {
+    (err) => {
+      expect.fail((output) => {
         output
           .jsFunctionName("simulate")
           .text("(element, ")
@@ -48,7 +48,7 @@ function simulate(rootElement, events) {
           .nl()
           .indentLines()
           .i()
-          .block(output => {
+          .block((output) => {
             output.appendErrorMessage(err);
           });
       });
@@ -58,14 +58,14 @@ function simulate(rootElement, events) {
 
 const unexpectedReaction = {
   name: "unexpected-reaction",
-  installInto: expect => {
+  installInto: (expect) => {
     expect.addType({
       name: "ReactElement",
       base: "wrapperObject",
-      unwrap: value => mount(value),
-      prefix: output => output,
-      suffix: output => output,
-      identify: value => React.isValidElement(value)
+      unwrap: (value) => mount(value),
+      prefix: (output) => output,
+      suffix: (output) => output,
+      identify: (value) => React.isValidElement(value),
     });
 
     expect.addAssertion(
@@ -102,7 +102,7 @@ const unexpectedReaction = {
         return expect.shift(subject);
       }
     );
-  }
+  },
 };
 
 unexpectedReaction.act = act;

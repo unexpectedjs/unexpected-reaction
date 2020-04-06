@@ -13,5 +13,5 @@ module.exports = {
   expect,
   mount,
   unmount,
-  simulate
+  simulate,
 };

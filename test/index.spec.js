@@ -6,7 +6,7 @@ const { React, Component, PropTypes, expect, mount, simulate } =
 expect.addAssertion(
   "<function> to error satisfying <assertion>",
   (expect, cb) =>
-    expect(cb, "to error").then(err => {
+    expect(cb, "to error").then((err) => {
       expect.errorMode = "nested";
       return expect.shift(
         err.isUnexpected ? err.getErrorMessage("text").toString() : err.message
@@ -32,7 +32,7 @@ class Hello extends Component {
 Hello.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.any,
-  testId: PropTypes.string
+  testId: PropTypes.string,
 };
 
 const Stateless = ({ className, children }) => (
@@ -41,7 +41,7 @@ const Stateless = ({ className, children }) => (
 
 Stateless.propTypes = {
   children: PropTypes.node.isRequired,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 class Toggle extends Component {
@@ -49,12 +49,12 @@ class Toggle extends Component {
     super(props);
 
     this.state = {
-      checked: false
+      checked: false,
     };
 
     this.onClick = () => {
-      this.setState(state => ({
-        checked: !state.checked
+      this.setState((state) => ({
+        checked: !state.checked,
       }));
     };
   }
@@ -77,22 +77,22 @@ class MyInput extends Component {
 
     this.state = {
       value: "",
-      selected: ""
+      selected: "",
     };
 
-    this.onKeyDown = data => {
+    this.onKeyDown = (data) => {
       if (data.keyCode === 13) {
         // Enter
-        this.setState(state => ({
+        this.setState((state) => ({
           value: "",
-          selected: state.value
+          selected: state.value,
         }));
       }
     };
 
-    this.onChange = data => {
+    this.onChange = (data) => {
       this.setState({
-        value: data.target.value
+        value: data.target.value,
       });
     };
   }
@@ -121,7 +121,7 @@ const FancyButton = React.forwardRef((props, ref) => (
 ));
 
 FancyButton.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 describe("unexpected-reaction", () => {
@@ -344,13 +344,13 @@ describe("unexpected-reaction", () => {
           {
             type: "change",
             value: "Jane Doe",
-            target: "input"
+            target: "input",
           },
           "queried for first",
           "input",
           "to have attribute",
           {
-            value: "Jane Doe"
+            value: "Jane Doe",
           }
         );
       });
@@ -365,15 +365,15 @@ describe("unexpected-reaction", () => {
               {
                 type: "change",
                 value: "Jane Doe",
-                target: "input"
+                target: "input",
               },
               {
                 type: "keyDown",
                 target: "input",
                 data: {
-                  keyCode: 13
-                }
-              }
+                  keyCode: 13,
+                },
+              },
             ],
             "queried for first",
             "[data-test=name]",
@@ -458,11 +458,11 @@ describe("unexpected-reaction", () => {
       simulate(component, {
         type: "change",
         value: "Jane Doe",
-        target: "input"
+        target: "input",
       });
 
       expect(component, "queried for first", "input", "to have attribute", {
-        value: "Jane Doe"
+        value: "Jane Doe",
       });
     });
 
@@ -474,15 +474,15 @@ describe("unexpected-reaction", () => {
           {
             type: "change",
             value: "Jane Doe",
-            target: "input"
+            target: "input",
           },
           {
             type: "keyDown",
             target: "input",
             data: {
-              keyCode: 13
-            }
-          }
+              keyCode: 13,
+            },
+          },
         ]);
 
         expect(

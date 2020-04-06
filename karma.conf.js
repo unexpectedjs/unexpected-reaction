@@ -1,4 +1,4 @@
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
     frameworks: ["mocha"],
 
@@ -13,14 +13,14 @@ module.exports = function(config) {
       "./node_modules/magicpen-prism/magicPenPrism.min.js",
       "./unexpected-reaction.js",
       "./test/common/browser.js",
-      "./build/test/index.spec.js"
+      "./build/test/index.spec.js",
     ],
 
     client: {
       mocha: {
         reporter: "html",
-        timeout: 60000
-      }
+        timeout: 60000,
+      },
     },
 
     browsers: ["ChromeHeadless", "ie11"],
@@ -31,7 +31,7 @@ module.exports = function(config) {
         process.env.TRAVIS_BRANCH === "master" &&
         !process.env.TRAVIS_PULL_REQUEST_BRANCH // Catch Travis "PR" builds
           ? "unexpected-reaction"
-          : "unexpected-reaction-dev"
+          : "unexpected-reaction-dev",
     },
 
     customLaunchers: {
@@ -40,10 +40,10 @@ module.exports = function(config) {
         browser: "IE",
         browser_version: "11",
         os: "Windows",
-        os_version: "7"
-      }
+        os_version: "7",
+      },
     },
 
-    reporters: ["dots", "BrowserStack"]
+    reporters: ["dots", "BrowserStack"],
   });
 };
