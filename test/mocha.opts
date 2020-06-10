@@ -1,4 +1,0 @@
---require mocha-dominate
---require babel-register
---exclude test/common/*.js
---recursive

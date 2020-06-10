@@ -1,0 +1,8 @@
+{
+  "require": [
+    "mocha-dominate",
+    "babel-register"
+  ],
+  "exclude": "test/common/*.js",
+  "recursive": true
+}
