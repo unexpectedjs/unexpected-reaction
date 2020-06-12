@@ -59,7 +59,7 @@
     "karma-chrome-launcher": "^3.0.0",
     "karma-mocha": "^2.0.0",
     "magicpen-prism": "^4.0.0",
-    "mocha": "^6.1.4",
+    "mocha": "^8.0.1",
     "mocha-dominate": "^0.1.0",
     "prettier": "~2.0.2",
     "prop-types": "^15.6.1",
