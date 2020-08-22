@@ -65,7 +65,7 @@
     "prop-types": "^15.6.1",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
-    "rollup": "^2.0.3",
+    "rollup": "2.2.0",
     "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-json": "4.0.0",
     "rollup-plugin-node-globals": "^1.4.0",
