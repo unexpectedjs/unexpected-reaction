@@ -1,6 +1,4 @@
 --require mocha-dominate
 --require babel-register
---require test/bootstrap-unexpected-markdown.js
---require unexpected-markdown
 --exclude test/common/*.js
 --recursive
