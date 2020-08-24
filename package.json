@@ -73,7 +73,7 @@
     "serve": "^11.0.0",
     "sinon": "^9.0.1",
     "unexpected": "^11.12.1",
-    "unexpected-documentation-site-generator": "^6.0.0",
+    "unexpected-documentation-site-generator": "^7.1.0",
     "unexpected-dom": "^4.17.0",
     "unexpected-markdown": "^4.0.0",
     "unexpected-sinon": "^10.11.0",
