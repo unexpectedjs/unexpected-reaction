@@ -15,6 +15,10 @@ matrix:
       node_js: "12"
       env:
         - TARGET=lint
+    - name: Documentation
+      node_js: "12"
+      env:
+        - TARGET=test-docs
     - name: Jest
       node_js: "12"
       env:

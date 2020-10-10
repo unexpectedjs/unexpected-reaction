@@ -4,7 +4,9 @@ it to the next assertion.
 You can either provide a single event or an array of events that should be
 triggers on the component. An event have the following form:
 
-```js#evaluate:false
+<!-- unexpected-markdown evaluate:false -->
+
+```js
 {
   type: 'change', // The event type
   value: 'My value', // will be set on target when specified
@@ -15,7 +17,9 @@ triggers on the component. An event have the following form:
 You can also specify event data for
 [Simulate](https://reactjs.org/docs/test-utils.html#simulate):
 
-```js#evaluate:false
+<!-- unexpected-markdown evaluate:false -->
+
+```js
 {
   type: "keyDown",
   target: "input",
@@ -161,7 +165,9 @@ issuing the events, it is probably more natural to use the
 from [react-dom-testing](https://github.com/sunesimonsen/react-dom-testing)
 instead. This function is exported by unexpected-reaction as a convenience:
 
-```js#evaluate:false
+<!-- unexpected-markdown evaluate:false -->
+
+```js
 const { simulate } = require("unexpected-reaction");
 ```
 
