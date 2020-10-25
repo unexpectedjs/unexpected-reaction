@@ -61,7 +61,7 @@
     "karma-mocha": "^2.0.0",
     "magicpen-prism": "^4.0.0",
     "mocha": "^6.1.4",
-    "mocha-dominate": "^0.1.0",
+    "mocha-dominate": "^1.0.0",
     "prettier": "~2.1.0",
     "prop-types": "^15.6.1",
     "react": "^16.8.1",
