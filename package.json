@@ -14,6 +14,7 @@
     "prepublishOnly": "npm run build",
     "test": "npm run test-node",
     "test-browser": "npm run build && npm run build-tests && karma start --single-run --browsers ${BROWSER:-ChromeHeadless}",
+    "test-browser-ie11": "BROWSER=ie11 npm run test-browser",
     "test-docs": "evaldown --config ./evaldown.config.js --validate --reporter spec ./documentation",
     "test-node": "mocha",
     "test-jest": "jest",
