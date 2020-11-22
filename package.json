@@ -77,7 +77,7 @@
     "unexpected-documentation-site-generator": "^7.1.0",
     "unexpected-dom": "^5.0.0",
     "unexpected-markdown": "^4.0.0",
-    "unexpected-sinon": "^10.11.0",
+    "unexpected-sinon": "^11.0.0",
     "unexpected-snapshot": "^1.0.0"
   },
   "dependencies": {
