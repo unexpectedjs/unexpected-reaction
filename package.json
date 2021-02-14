@@ -60,7 +60,7 @@
     "karma-browserstack-launcher": "^1.4.0",
     "karma-chrome-launcher": "^3.0.0",
     "karma-mocha": "^2.0.0",
-    "magicpen-prism": "^4.0.0",
+    "magicpen-prism": "^5.0.0",
     "mocha": "^8.2.0",
     "mocha-dominate": "^1.0.0",
     "prettier": "~2.2.0",
