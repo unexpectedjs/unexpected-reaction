@@ -1,9 +1,12 @@
 {
   "name": "unexpected-reaction",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "An Unexpected plugin to make React testing with unexpected-dom more convenient",
   "main": "./lib/index.js",
-  "files": ["lib", "unexpected-reaction.js"],
+  "files": [
+    "lib",
+    "unexpected-reaction.js"
+  ],
   "scripts": {
     "build": "babel --out-dir lib --quiet src && rollup -c",
     "build-tests": "babel --out-dir build --quiet test/index.spec.js",
@@ -25,7 +28,13 @@
     "type": "git",
     "url": "https://github.com/unexpectedjs/unexpected-reaction"
   },
-  "keywords": ["unexpected", "plugin", "react", "testing", "DOM"],
+  "keywords": [
+    "unexpected",
+    "plugin",
+    "react",
+    "testing",
+    "DOM"
+  ],
   "author": "Sune Simonsen <sune@we-knowhow.dk>",
   "license": "MIT",
   "devDependencies": {
