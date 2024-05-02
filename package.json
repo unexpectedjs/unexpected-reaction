@@ -3,7 +3,10 @@
   "version": "3.1.0",
   "description": "An Unexpected plugin to make React testing with unexpected-dom more convenient",
   "main": "./lib/index.js",
-  "files": ["lib", "unexpected-reaction.js"],
+  "files": [
+    "lib",
+    "unexpected-reaction.js"
+  ],
   "scripts": {
     "build": "babel --out-dir lib --quiet src && rollup -c",
     "build-tests": "babel --out-dir build --quiet test/index.spec.js",
@@ -25,7 +28,13 @@
     "type": "git",
     "url": "https://github.com/unexpectedjs/unexpected-reaction"
   },
-  "keywords": ["unexpected", "plugin", "react", "testing", "DOM"],
+  "keywords": [
+    "unexpected",
+    "plugin",
+    "react",
+    "testing",
+    "DOM"
+  ],
   "author": "Sune Simonsen <sune@we-knowhow.dk>",
   "license": "MIT",
   "devDependencies": {
@@ -65,12 +74,12 @@
     "rollup-plugin-node-resolve": "^5.0.0",
     "serve": "^13.0.2",
     "sinon": "^12.0.1",
-    "unexpected": "^12.0.0",
-    "unexpected-documentation-site-generator": "^7.1.0",
-    "unexpected-dom": "^5.0.0",
-    "unexpected-markdown": "^6.0.0",
-    "unexpected-sinon": "^11.0.0",
-    "unexpected-snapshot": "^1.0.0"
+    "unexpected": "^13.2.1",
+    "unexpected-documentation-site-generator": "^8.1.2",
+    "unexpected-dom": "^6.0.1",
+    "unexpected-markdown": "^6.0.1",
+    "unexpected-sinon": "^11.1.0",
+    "unexpected-snapshot": "^2.2.0"
   },
   "dependencies": {
     "react-dom-testing": "^1.12.0"
@@ -79,7 +88,7 @@
     "magicpen-prism": "^4.0.0",
     "react": "^15.5.4 || 16 || 17 || 18",
     "react-dom": "^15.5.4 || 16 || 17 || 18",
-    "unexpected": "^10.40.0 || ^11.12.1 || ^12.0.0",
-    "unexpected-dom": "^4.17.0 || ^5.0.0"
+    "unexpected": "^10.40.0 || ^11.12.1 || ^12.0.0 || 13",
+    "unexpected-dom": "^4.17.0 || ^5.0.0 || 6"
   }
 }
